@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+// Define Raft service
+service RaftService {
+    rpc Register( RegisterRequest) returns ( RegisterResponse);
+    rpc RequestVote( RequestVoteRequest) returns ( RequestVoteReply);
+    rpc AppendEntry( AppendEntryRequest) returns ( AppendEntryReply);
+    rpc ServeClient(stream ServeClientArgs) returns (stream ServeClientReply);
+    rpc GetNodeAddress(GetNodeAddressRequest) returns (stream NodeAddress);
+}
+
+message RegisterRequest {
+  string msg = 1;
+  
+}
+
+message RegisterResponse {
+  string result = 1;
+  string port = 2;
+}
+
+// Request and Reply messages for RequestVote RPC
+message RequestVoteRequest {
+    int32 candidateTerm = 1;
+    int32 candidate_id = 2;
+    int32 last_log_index = 3;
+    int32 last_log_term = 4;
+}
+
+message RequestVoteReply {
+    int32 term = 1;
+    bool vote_granted = 2;
+    int32 node_id=3;
+    int32 old_leader_lease_duration = 4; // Added for old leader's lease duration
+    string node_address = 5;
+}
+
+// Request and Reply messages for AppendEntry RPC
+message AppendEntryRequest {
+    int32 leader_term = 1;
+    int32 leader_id = 2;
+    int32 prev_log_index = 3;
+    int32 prev_log_term = 4;
+    repeated string entries = 5;
+    string type = 6;
+    //int32 leader_commit = 6;
+    //int32 lease_duration = 5; // Added for leader lease
+    // TODO: Add log entries and other necessary fields
+}
+
+message AppendEntryReply {
+    int32 term = 1;
+    bool success = 2;
+    string node_address = 3;
+}
+
+// Request and Reply messages for client interactions
+message ServeClientArgs {
+    string request = 1;
+}
+
+message ServeClientReply {
+    string data = 1;
+    string leader_id = 2;
+    bool success = 3;
+}
+
+// Request message for getting node address
+message GetNodeAddressRequest {
+    // No fields required in this message
+}
+
+// Node address message
+message NodeAddress {
+    string address = 1;
+}
