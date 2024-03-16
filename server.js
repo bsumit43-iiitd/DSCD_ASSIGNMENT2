@@ -20,6 +20,8 @@ const nodeId = nodeIdIndex !== -1 ? parseInt(process.argv[nodeIdIndex + 1]) : 0;
 console.log("NodeId " + nodeId);
 
 let timeoutId;
+let heartbeatId;
+
 let voted_for = {};
 let current_leader = {};
 let log = [];
@@ -28,7 +30,7 @@ let votes_received = {};
 let term = 1;
 let commit_length;
 
-const request_message = () => {
+const request_message = (type = "heartbeat") => {
   Object.values(clusterConnectionStrings).forEach((client) => {
     client.AppendEntry(
       {
@@ -37,7 +39,7 @@ const request_message = () => {
         prevLogIndex: log.length - 1,
         prevLogTerm: log[log.length - 1]?.term,
         entires: [],
-        type: "leader_ack",
+        type: type,
       },
       (err, response) => {
         if (err) {
@@ -76,10 +78,11 @@ const vote = () => {
             votes_received[term]?.length + 1 >
               Math.ceil((Object.keys(clusterConnectionStrings)?.length + 1) / 2)
           ) {
+            resetHeartbeat(1000);
             console.log("I am a leader");
             current_role = "leader";
             current_leader = nodeId;
-            request_message();
+            request_message("leader_ack");
             // resetTimeout(randsec * 1000);
           }
           console.log(
@@ -102,13 +105,26 @@ const resetTimeout = (delay) => {
   console.log(`Timeout reset for ${delay} milliseconds`);
 };
 
+const resetHeartbeat = (delay) => {
+  // Clear previous interval if it exists
+  if (heartbeatId) {
+    clearInterval(heartbeatId);
+  }
+  // Set new interval
+  heartbeatId = setInterval(request_message, delay);
+  console.log(`Interval reset for ${delay} milliseconds`);
+};
+
 const server = new grpc.Server();
 
 server.addService(grpcObj.RaftService.service, {
   AppendEntry: (call, callback) => {
     const { leaderTerm, leaderId, prevLogIndex, prevLogTerm, type } =
       call.request;
-    if (type == "leader_ack") {
+    if (type == "heartbeat") {
+      console.log("ResetTimeout");
+      resetTimeout(randsec * 1000);
+    } else if (type == "leader_ack") {
       if (term < leaderTerm) {
         current_leader = leaderId;
         callback(null, { term: term, success: true, nodeId: nodeId });
