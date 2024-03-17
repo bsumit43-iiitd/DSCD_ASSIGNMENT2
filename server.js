@@ -1,5 +1,6 @@
 const path = require("path");
 const grpc = require("@grpc/grpc-js");
+const logToFile = require("./logging");
 const protoLoader = require("@grpc/proto-loader");
 const uuidv4 = require("uuid").v4;
 const portIndex = process.argv.indexOf("--port");
