@@ -5,7 +5,7 @@ service RaftService {
     rpc Register( RegisterRequest) returns ( RegisterResponse);
     rpc RequestVote( RequestVoteRequest) returns ( RequestVoteReply);
     rpc AppendEntry( AppendEntryRequest) returns ( AppendEntryReply);
-    rpc ServeClient(stream ServeClientArgs) returns (stream ServeClientReply);
+    rpc ServeClient (ServeClientArgs) returns (ServeClientReply) {}
     rpc GetNodeAddress(GetNodeAddressRequest) returns (stream NodeAddress);
 }
 
@@ -58,10 +58,10 @@ message AppendEntryReply {
 message ServeClientArgs {
     string request = 1;
 }
-
+  
 message ServeClientReply {
     string data = 1;
-    string leader_id = 2;
+    string leaderID = 2;
     bool success = 3;
 }
 

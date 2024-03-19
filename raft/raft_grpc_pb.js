@@ -152,8 +152,8 @@ var RaftServiceService = exports.RaftServiceService = {
   },
   serveClient: {
     path: '/RaftService/ServeClient',
-    requestStream: true,
-    responseStream: true,
+    requestStream: false,
+    responseStream: false,
     requestType: raft_raft_pb.ServeClientArgs,
     responseType: raft_raft_pb.ServeClientReply,
     requestSerialize: serialize_ServeClientArgs,

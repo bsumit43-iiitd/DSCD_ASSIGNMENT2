@@ -1044,7 +1044,8 @@ proto.AppendEntryRequest.toObject = function(includeInstance, msg) {
     leaderId: jspb.Message.getFieldWithDefault(msg, 2, 0),
     prevLogIndex: jspb.Message.getFieldWithDefault(msg, 3, 0),
     prevLogTerm: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    entriesList: (f = jspb.Message.getRepeatedField(msg, 5)) == null ? undefined : f
+    entriesList: (f = jspb.Message.getRepeatedField(msg, 5)) == null ? undefined : f,
+    type: jspb.Message.getFieldWithDefault(msg, 6, "")
   };
 
   if (includeInstance) {
@@ -1100,6 +1101,10 @@ proto.AppendEntryRequest.deserializeBinaryFromReader = function(msg, reader) {
     case 5:
       var value = /** @type {string} */ (reader.readString());
       msg.addEntries(value);
+      break;
+    case 6:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setType(value);
       break;
     default:
       reader.skipField();
@@ -1162,6 +1167,13 @@ proto.AppendEntryRequest.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writeRepeatedString(
       5,
+      f
+    );
+  }
+  f = message.getType();
+  if (f.length > 0) {
+    writer.writeString(
+      6,
       f
     );
   }
@@ -1274,6 +1286,24 @@ proto.AppendEntryRequest.prototype.addEntries = function(value, opt_index) {
  */
 proto.AppendEntryRequest.prototype.clearEntriesList = function() {
   return this.setEntriesList([]);
+};
+
+
+/**
+ * optional string type = 6;
+ * @return {string}
+ */
+proto.AppendEntryRequest.prototype.getType = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.AppendEntryRequest} returns this
+ */
+proto.AppendEntryRequest.prototype.setType = function(value) {
+  return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -1580,7 +1610,7 @@ proto.ServeClientArgs.serializeBinaryToWriter = function(message, writer) {
 
 
 /**
- * optional string request = 1;
+ * optional string Request = 1;
  * @return {string}
  */
 proto.ServeClientArgs.prototype.getRequest = function() {
@@ -1630,7 +1660,7 @@ proto.ServeClientReply.prototype.toObject = function(opt_includeInstance) {
 proto.ServeClientReply.toObject = function(includeInstance, msg) {
   var f, obj = {
     data: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    leaderId: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    leaderid: jspb.Message.getFieldWithDefault(msg, 2, ""),
     success: jspb.Message.getBooleanFieldWithDefault(msg, 3, false)
   };
 
@@ -1674,7 +1704,7 @@ proto.ServeClientReply.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 2:
       var value = /** @type {string} */ (reader.readString());
-      msg.setLeaderId(value);
+      msg.setLeaderid(value);
       break;
     case 3:
       var value = /** @type {boolean} */ (reader.readBool());
@@ -1716,7 +1746,7 @@ proto.ServeClientReply.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getLeaderId();
+  f = message.getLeaderid();
   if (f.length > 0) {
     writer.writeString(
       2,
@@ -1734,7 +1764,7 @@ proto.ServeClientReply.serializeBinaryToWriter = function(message, writer) {
 
 
 /**
- * optional string data = 1;
+ * optional string Data = 1;
  * @return {string}
  */
 proto.ServeClientReply.prototype.getData = function() {
@@ -1752,10 +1782,10 @@ proto.ServeClientReply.prototype.setData = function(value) {
 
 
 /**
- * optional string leader_id = 2;
+ * optional string LeaderID = 2;
  * @return {string}
  */
-proto.ServeClientReply.prototype.getLeaderId = function() {
+proto.ServeClientReply.prototype.getLeaderid = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
@@ -1764,13 +1794,13 @@ proto.ServeClientReply.prototype.getLeaderId = function() {
  * @param {string} value
  * @return {!proto.ServeClientReply} returns this
  */
-proto.ServeClientReply.prototype.setLeaderId = function(value) {
+proto.ServeClientReply.prototype.setLeaderid = function(value) {
   return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
 /**
- * optional bool success = 3;
+ * optional bool Success = 3;
  * @return {boolean}
  */
 proto.ServeClientReply.prototype.getSuccess = function() {
