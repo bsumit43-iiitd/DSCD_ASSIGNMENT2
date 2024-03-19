@@ -24,21 +24,21 @@ let timeoutId;
 let heartbeatId;
 
 let voted_for = {};
-let current_leader = {};
+let current_leader = "";
 let log = [];
 let current_role;
 let votes_received = {};
-let term = 1;
+let current_term = 1;
 let commit_length;
 
 const request_message = (type = "heartbeat") => {
   Object.values(clusterConnectionStrings).forEach((client) => {
     client.AppendEntry(
       {
-        leaderTerm: term,
+        leaderTerm: current_term,
         leaderId: nodeId,
         prevLogIndex: log.length - 1,
-        prevLogTerm: log[log.length - 1]?.term,
+        prevLogTerm: log[log.length - 1]?.current_term,
         entires: [],
         type: type,
       },
@@ -54,35 +54,35 @@ const request_message = (type = "heartbeat") => {
 };
 
 const vote = () => {
-  term = term + 1;
+  current_term = current_term + 1;
   //let count = 1;
-  votes_received[term] = [nodeId];
+  votes_received[current_term] = [nodeId];
   current_role = "candidate";
-  voted_for = { ...voted_for, [term]: nodeId };
+  voted_for = { ...voted_for, [current_term]: nodeId };
   Object.values(clusterConnectionStrings).forEach((client) => {
     client.RequestVote(
       {
-        candidateTerm: term,
+        candidateTerm:current_term,
         candidateId: nodeId,
         last_log_index: log.length - 1,
-        last_log_term: log[log.length - 1]?.term,
+        last_log_term: log[log.length - 1]?.current_term,
       },
       (err, response) => {
         if (err) {
           console.error("Error sending message:", err);
         } else {
           if (response?.voteGranted) {
-            votes_received[term] = [...votes_received[term], response?.nodeId];
+            votes_received[current_term] = [...votes_received[current_term], response?.nodeId];
           }
           if (
             current_role != "leader" &&
-            votes_received[term]?.length + 1 >
+            votes_received[current_term]?.length + 1 >
               Math.ceil((Object.keys(clusterConnectionStrings)?.length + 1) / 2)
           ) {
             resetHeartbeat(1000);
             console.log("I am a leader");
             current_role = "leader";
-            current_leader = nodeId;
+            current_leader?.[current_term] = nodeId;
             request_message("leader_ack");
             // resetTimeout(randsec * 1000);
           }
@@ -119,6 +119,23 @@ const resetHeartbeat = (delay) => {
 const server = new grpc.Server();
 
 server.addService(grpcObj.RaftService.service, {
+  ServeClient: (call, callback) => {
+    const { request } = call.request;
+    const op = request?.split(" ")?.[0];
+    const key = request?.split(" ")?.[1];
+    const val = request?.split(" ")?.[2];
+    console.log(request);
+    if (current_role !== "leader") {
+      callback(null, {
+        data: `Node ${nodeId} is not a leader`,
+        success: false,
+        leaderId: current_leader?.[current_term] || null,
+      });
+    }else{
+      log.push({term:current_term, entry:request})
+
+    }
+  },
   AppendEntry: (call, callback) => {
     const { leaderTerm, leaderId, prevLogIndex, prevLogTerm, type } =
       call.request;
@@ -126,11 +143,11 @@ server.addService(grpcObj.RaftService.service, {
       console.log("ResetTimeout");
       resetTimeout(randsec * 1000);
     } else if (type == "leader_ack") {
-      if (term < leaderTerm) {
-        current_leader = leaderId;
-        callback(null, { term: term, success: true, nodeId: nodeId });
+      if (current_term < leaderTerm) {
+        current_leader?.[current_term] = leaderId;
+        callback(null, { term: current_term, success: true, nodeId: nodeId });
       } else {
-        callback(null, { term: term, success: false, nodeId: nodeId });
+        callback(null, { term: current_term, success: false, nodeId: nodeId });
       }
     }
   },
@@ -139,13 +156,13 @@ server.addService(grpcObj.RaftService.service, {
       call.request;
     console.log("Vote Requested By " + candidateId);
     resetTimeout(randsec * 1000);
-    if (term < candidateTerm) {
-      term = candidateTerm;
+    if (current_term < candidateTerm) {
+      current_term = candidateTerm;
       current_role = "follower";
       voted_for = { ...voted_for, [candidateTerm]: candidateId };
-      callback(null, { term: term, voteGranted: true, nodeId: nodeId });
+      callback(null, { term: current_term, voteGranted: true, nodeId: nodeId });
     } else {
-      callback(null, { term: term, voteGranted: false, nodeId: nodeId });
+      callback(null, { term: current_term, voteGranted: false, nodeId: nodeId });
     }
   },
   Register: (call, callback) => {

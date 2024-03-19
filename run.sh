@@ -8,3 +8,6 @@ gnome-terminal --tab -- bash -c "node server.js --nodeId 2 --port 2001 --peer 20
 
 # Start the third server in a new terminal window
 gnome-terminal --tab -- bash -c "node server.js --nodeId 3 --port 2002 --peer 2000 2001; exec bash"
+
+
+gnome-terminal --tab -- bash -c "node client.js --leader 0.0.0.0:2000; exec bash"

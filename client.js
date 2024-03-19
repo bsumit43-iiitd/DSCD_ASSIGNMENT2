@@ -4,7 +4,7 @@ const protoLoader = require("@grpc/proto-loader");
 
 const leaderIndex = process.argv.indexOf("--leader");
 const leaderAdd =
-  leaderIndex !== -1 ? parseInt(process.argv[leaderIndex + 1]) : "0.0.0.0:2000";
+  leaderIndex !== -1 ? process.argv[leaderIndex + 1] : "0.0.0.0:2000";
 let PORT = leaderAdd.split(":")?.[1];
 let IP = leaderAdd.split(":")?.[0];
 
@@ -50,18 +50,22 @@ let client = new grpcObj.RaftService(
 function retrieveIpPort(leaderId) {
   IP = clusterInfo?.[leaderId]?.ip;
   PORT = clusterInfo?.[leaderId]?.port;
+  client = new grpcObj.RaftService(
+    `${IP}:${PORT}`,
+    grpc.credentials.createInsecure()
+  );
 }
 
 Array.prototype.sample = function () {
   return this[Math.floor(Math.random() * this.length)];
 };
 
-function requestServer(operation, key, value = "") {
+function requestServer(operation, key, value = "", count = 0) {
   try {
     client.ServeClient(
       {
         request:
-          operation.toLowercase() == "set"
+          operation?.toLowerCase() == "set"
             ? `SET ${key} ${value}`
             : `GET ${key}`,
       },
@@ -86,9 +90,14 @@ function requestServer(operation, key, value = "") {
       }
     );
   } catch (err) {
-    lId = Object.keys(clusterInfo)?.sample();
-    retrieveIpPort(lId);
-    requestServer(operation, key, value);
+    // console.log(err);
+    if (count > 10) {
+      console.log("Exceeded Retry");
+    } else {
+      lId = Object.keys(clusterInfo)?.sample();
+      retrieveIpPort(lId);
+      requestServer(operation, key, value, ++count);
+    }
   }
 }
 

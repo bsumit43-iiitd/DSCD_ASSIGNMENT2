@@ -6,7 +6,6 @@ service RaftService {
     rpc RequestVote( RequestVoteRequest) returns ( RequestVoteReply);
     rpc AppendEntry( AppendEntryRequest) returns ( AppendEntryReply);
     rpc ServeClient (ServeClientArgs) returns (ServeClientReply) {}
-    rpc GetNodeAddress(GetNodeAddressRequest) returns (stream NodeAddress);
 }
 
 message RegisterRequest {
@@ -65,12 +64,3 @@ message ServeClientReply {
     bool success = 3;
 }
 
-// Request message for getting node address
-message GetNodeAddressRequest {
-    // No fields required in this message
-}
-
-// Node address message
-message NodeAddress {
-    string address = 1;
-}
