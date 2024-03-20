@@ -25,14 +25,14 @@ const clusterInfo = {
     port: "2002",
     ip: "0.0.0.0",
   },
-  4: {
-    port: "2003",
-    ip: "0.0.0.0",
-  },
-  5: {
-    port: "2004",
-    ip: "0.0.0.0",
-  },
+  // 4: {
+  //   port: "2003",
+  //   ip: "0.0.0.0",
+  // },
+  // 5: {
+  //   port: "2004",
+  //   ip: "0.0.0.0",
+  // },
 };
 
 if (!grpcObj.RaftService) {
@@ -101,9 +101,13 @@ function requestServer(operation, key, value = "", count = 0) {
   }
 }
 
-requestServer("set", "a", "5");
-requestServer("set", "b", "df");
-requestServer("set", "c", "324");
-requestServer("get", "a");
-requestServer("get", "b");
-requestServer("get", "c");
+setTimeout(() => {
+  requestServer("set", "a", "5");
+  requestServer("set", "b", "df");
+  requestServer("set", "c", "324");
+  setTimeout(() => {
+    requestServer("get", "a");
+    requestServer("get", "b");
+    requestServer("get", "c");
+  },5000);
+}, 10000);

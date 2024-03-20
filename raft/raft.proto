@@ -34,15 +34,19 @@ message RequestVoteReply {
     string node_address = 5;
 }
 
+message entries{
+    int32 term =1;
+    string msg=2;
+}
 // Request and Reply messages for AppendEntry RPC
 message AppendEntryRequest {
     int32 leader_term = 1;
     int32 leader_id = 2;
     int32 prev_log_index = 3;
     int32 prev_log_term = 4;
-    repeated string entries = 5;
-    string type = 6;
-    //int32 leader_commit = 6;
+    repeated entries entries = 5;
+    int32 leader_commit = 6;
+    string type = 7;
     //int32 lease_duration = 5; // Added for leader lease
     // TODO: Add log entries and other necessary fields
 }
@@ -50,7 +54,8 @@ message AppendEntryRequest {
 message AppendEntryReply {
     int32 term = 1;
     bool success = 2;
-    string node_address = 3;
+    string nodeId = 3;
+    
 }
 
 // Request and Reply messages for client interactions

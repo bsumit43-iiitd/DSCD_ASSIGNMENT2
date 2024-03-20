@@ -26,28 +26,6 @@ function deserialize_AppendEntryRequest(buffer_arg) {
   return raft_raft_pb.AppendEntryRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_GetNodeAddressRequest(arg) {
-  if (!(arg instanceof raft_raft_pb.GetNodeAddressRequest)) {
-    throw new Error('Expected argument of type GetNodeAddressRequest');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_GetNodeAddressRequest(buffer_arg) {
-  return raft_raft_pb.GetNodeAddressRequest.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
-function serialize_NodeAddress(arg) {
-  if (!(arg instanceof raft_raft_pb.NodeAddress)) {
-    throw new Error('Expected argument of type NodeAddress');
-  }
-  return Buffer.from(arg.serializeBinary());
-}
-
-function deserialize_NodeAddress(buffer_arg) {
-  return raft_raft_pb.NodeAddress.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
 function serialize_RegisterRequest(arg) {
   if (!(arg instanceof raft_raft_pb.RegisterRequest)) {
     throw new Error('Expected argument of type RegisterRequest');
@@ -160,17 +138,6 @@ var RaftServiceService = exports.RaftServiceService = {
     requestDeserialize: deserialize_ServeClientArgs,
     responseSerialize: serialize_ServeClientReply,
     responseDeserialize: deserialize_ServeClientReply,
-  },
-  getNodeAddress: {
-    path: '/RaftService/GetNodeAddress',
-    requestStream: false,
-    responseStream: true,
-    requestType: raft_raft_pb.GetNodeAddressRequest,
-    responseType: raft_raft_pb.NodeAddress,
-    requestSerialize: serialize_GetNodeAddressRequest,
-    requestDeserialize: deserialize_GetNodeAddressRequest,
-    responseSerialize: serialize_NodeAddress,
-    responseDeserialize: deserialize_NodeAddress,
   },
 };
 
