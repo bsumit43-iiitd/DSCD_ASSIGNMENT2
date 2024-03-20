@@ -9,7 +9,7 @@ const nodeId = nodeIdIndex !== -1 ? parseInt(process.argv[nodeIdIndex + 1]) : 0;
 const logToFile = (level, message, filename) => {
   const timestamp = new Date().toISOString();
 
-  const logMessage = `[${timestamp}] [${level.toUpperCase()}] ${message}\n`;
+  const logMessage = `[${timestamp}] [${level.toUpperCase()}] - ${message}\n`;
 
   const logFilePath = path.join(__dirname, `logs_node_${nodeId}`, filename);
 
@@ -34,8 +34,8 @@ if (!fs.existsSync(logDir)) {
 
 
 
-logToFile("info", "This is an info message.", "logs.txt");
-logToFile("error", "This is an error message.", "metadata.txt");
-logToFile("info", "This is an access log message.", "dump.txt");
+// logToFile("info", "This is an info message.", "logs.txt");
+// logToFile("error", "This is an error message.", "metadata.txt");
+// logToFile("info", "This is an access log message.", "dump.txt");
 
 module.exports = logToFile;

@@ -2,6 +2,7 @@ const path = require("path");
 const grpc = require("@grpc/grpc-js");
 const logToFile = require("./logging");
 const protoLoader = require("@grpc/proto-loader");
+const retrieveNodeId = require("./clusterInfo");
 const uuidv4 = require("uuid").v4;
 const portIndex = process.argv.indexOf("--port");
 const PORT = portIndex !== -1 ? parseInt(process.argv[portIndex + 1]) : 8082;
@@ -49,7 +50,7 @@ const log_fix = (
       prevLogTerm: prevLogTerm,
       entries: log.slice(prevLogIndex + 1, commit_index),
       leaderCommit: commit_index,
-      type: "log_fix",
+      type: "log_fix"
     },
     (err, response) => {
       if (err) {
@@ -73,7 +74,7 @@ const log_fix = (
 const req_ack = (current_term, commit_index, prevLogIndex, prevLogTerm) => {
   resetHeartbeat(1000);
 
-  Object.values(clusterConnectionStrings).forEach((client) => {
+  Object.entries(clusterConnectionStrings).forEach(([pot, client]) => {
     client.AppendEntry(
       {
         leaderTerm: current_term,
@@ -82,11 +83,19 @@ const req_ack = (current_term, commit_index, prevLogIndex, prevLogTerm) => {
         prevLogTerm: prevLogTerm,
         entries: [],
         leaderCommit: commit_index,
-        type: "req_ack",
+        type: "req_ack"
       },
       (err, response) => {
         if (err) {
-          console.error("Error sending message:", err);
+          let followerNodeId = retrieveNodeId(pot);
+          logToFile(
+            "error",
+            `Error occurred while sending RPC to Node ${
+              followerNodeId || pot
+            }.`,
+            "dump.txt"
+          );
+          console.error("Error sending message:");
         } else {
           console.log("Sucess Ack" + response?.nodeId);
         }
@@ -96,11 +105,19 @@ const req_ack = (current_term, commit_index, prevLogIndex, prevLogTerm) => {
 };
 const request_message = async (type = "heartbeat", log = []) => {
   if (type != "heartbeat") resetHeartbeat(1000);
+  // logging to logs.txt
+  if (type == "heartbeat") {
+    logToFile(
+      "info",
+      `Leader ${current_term} sending heartbeat & Renewing Lease`,
+      "dump.txt"
+    );
+  }
   let temp_commit_index = commit_index;
   let temp_current_term = current_term;
   let prevLogIndex = log.length - 2;
   let prevLogTerm = log[log.length - 2]?.term;
-  Object.values(clusterConnectionStrings).forEach((client) => {
+  Object.entries(clusterConnectionStrings).forEach(([pot, client]) => {
     client.AppendEntry(
       {
         leaderTerm: current_term,
@@ -109,11 +126,19 @@ const request_message = async (type = "heartbeat", log = []) => {
         prevLogTerm: log[log.length - 2]?.term || -1,
         entries: type == "heartbeat" ? [] : log.slice(-1),
         leaderCommit: temp_commit_index,
-        type: type,
+        type: type
       },
       (err, response) => {
         if (err) {
-          console.error("Error sending message:", err);
+          let followerNodeId = retrieveNodeId(pot);
+          logToFile(
+            "error",
+            `Error occurred while sending RPC to Node ${
+              followerNodeId || pot
+            }.`,
+            "dump.txt"
+          );
+          console.error("Error sending message:");
         } else {
           console.log(type, response);
           if (type == "heartbeat") {
@@ -123,7 +148,7 @@ const request_message = async (type = "heartbeat", log = []) => {
               if (req_msg_vote_received[prevLogIndex + 1]) {
                 req_msg_vote_received[prevLogIndex + 1] = [
                   ...req_msg_vote_received[prevLogIndex + 1],
-                  response?.nodeId,
+                  response?.nodeId
                 ];
               } else {
                 req_msg_vote_received[prevLogIndex + 1] = [response?.nodeId];
@@ -143,7 +168,17 @@ const request_message = async (type = "heartbeat", log = []) => {
                 ) {
                   data[req?.split(" ")?.[1]] = req?.split(" ")?.[2];
                   commit_index = commit_index + 1;
+                  logToFile(
+                    "info",
+                    `Commit_length: ${commit_index}, Term: ${current_term}, NodeId: ${nodeId} `,
+                    "metadata.txt"
+                  );
                   console.log("Leader", commit_index);
+                  logToFile(
+                    "info",
+                    `Node ${nodeId} (leader) committed the entry ${req} to the state machine.`,
+                    "dump.txt"
+                  );
                   req_ack(
                     temp_current_term,
                     commit_index,
@@ -156,6 +191,7 @@ const request_message = async (type = "heartbeat", log = []) => {
             } else {
               if (current_term < response?.term) {
                 current_role = "follower";
+                logToFile("info", `${nodeId} Stepping down.`, "dump.txt");
                 if (heartbeatId) {
                   clearInterval(heartbeatId);
                 }
@@ -182,23 +218,43 @@ const vote = () => {
   //let count = 1;
   votes_received[current_term] = [nodeId];
   current_role = "candidate";
+  logToFile(
+    "info",
+    `Commit_length: ${commit_index}, Term: ${current_term}, NodeId: ${nodeId} `,
+    "metadata.txt"
+  );
+  // Election timeout log to dump.txt
+  logToFile(
+    "info",
+    `Node ${nodeId} election timer timed out, Starting election.`,
+    "dump.txt"
+  );
+
   voted_for = { ...voted_for, [current_term]: nodeId };
-  Object.values(clusterConnectionStrings).forEach((client) => {
+  Object.entries(clusterConnectionStrings).forEach(([pot, client]) => {
     client.RequestVote(
       {
         candidateTerm: current_term,
         candidateId: nodeId,
         last_log_index: log.length - 1,
-        last_log_term: log[log.length - 1]?.current_term,
+        last_log_term: log[log.length - 1]?.current_term
       },
       (err, response) => {
         if (err) {
-          console.error("Error sending message:", err);
+          let followerNodeId = retrieveNodeId(pot);
+          logToFile(
+            "error",
+            `Error occurred while sending RPC to Node ${
+              followerNodeId || pot
+            }.`,
+            "dump.txt"
+          );
+          console.error("Error sending message:");
         } else {
           if (response?.voteGranted) {
             votes_received[current_term] = [
               ...votes_received[current_term],
-              response?.nodeId,
+              response?.nodeId
             ];
           }
           if (
@@ -210,7 +266,13 @@ const vote = () => {
             console.log("I am a leader");
             current_role = "leader";
             current_leader[current_term] = nodeId;
+            logToFile(
+              "info",
+              `Node ${nodeId} became the leader for term ${current_term}.`,
+              "dump.txt"
+            );
             request_message("leader_ack");
+
             // resetTimeout(randsec * 1000);
           }
           console.log(
@@ -248,6 +310,7 @@ const server = new grpc.Server();
 server.addService(grpcObj.RaftService.service, {
   ServeClient: (call, callback) => {
     const { request } = call.request;
+    let tmp = request;
     const op = request?.split(" ")?.[0];
     const key = request?.split(" ")?.[1];
     const val = request?.split(" ")?.[2];
@@ -256,21 +319,28 @@ server.addService(grpcObj.RaftService.service, {
       callback(null, {
         data: `Node ${nodeId} is not a leader`,
         success: false,
-        leaderId: current_leader?.[current_term] || null,
+        leaderId: current_leader?.[current_term] || null
       });
     } else {
+      logToFile(
+        "info",
+        `Node ${nodeId} (leader) received an ${tmp} request.`,
+        "dump.txt"
+      );
       if (op == "GET") {
         console.log(data);
         callback(null, {
           data: `Value retrieved for ${key}. Value : ${data?.[key]}`,
-          success: true,
+          success: true
         });
       } else {
         log.push({ term: current_term, msg: request });
+        // logging to logs.txt
+        logToFile("info", `${tmp} ${current_term}`, "logs.txt");
         request_message("request_msg", log).then((res) => {
           callback(null, {
             data: `Set Value successfully at key = ${key} and value = ${val}`,
-            success: true,
+            success: true
           });
         });
       }
@@ -284,7 +354,7 @@ server.addService(grpcObj.RaftService.service, {
       prevLogTerm,
       type,
       entries,
-      leaderCommit,
+      leaderCommit
     } = call.request;
     console.log(type);
     if (type == "heartbeat") {
@@ -299,44 +369,112 @@ server.addService(grpcObj.RaftService.service, {
       }
     } else if (type == "request_msg") {
       if (leaderTerm < current_term) {
+        logToFile(
+          "info",
+          `Node ${nodeId} rejected AppendEntries RPC from ${leaderId}.`,
+          "dump.txt"
+        );
         callback(null, { term: current_term, success: false, nodeId: nodeId });
       } else if (leaderTerm > current_term) {
         leaderTerm == current_term;
         if (prevLogTerm == -1 || log[log.length - 1]?.term == prevLogTerm) {
-          if (prevLogIndex == -1 || log.length == prevLogIndex) {
+          if (prevLogIndex == -1 || log.length - 1 == prevLogIndex) {
             log.push({
               term: leaderTerm,
-              msg: entries[entries.length - 1]?.msg,
+              msg: entries[entries.length - 1]?.msg
             });
+            logToFile(
+              "info",
+              `Node ${nodeId} accepted AppendEntries RPC from ${leaderId}.`,
+              "dump.txt"
+            );
             callback(null, {
               term: current_term,
               success: true,
-              nodeId: nodeId,
+              nodeId: nodeId
+            });
+          } else {
+            logToFile(
+              "info",
+              `Node ${nodeId} rejected AppendEntries RPC from ${leaderId}.`,
+              "dump.txt"
+            );
+            callback(null, {
+              term: current_term,
+              success: false,
+              nodeId: nodeId
             });
           }
+        } else {
+          logToFile(
+            "info",
+            `Node ${nodeId} rejected AppendEntries RPC from ${leaderId}.`,
+            "dump.txt"
+          );
+          callback(null, {
+            term: current_term,
+            success: false,
+            nodeId: nodeId
+          });
         }
       } else if (leaderTerm == current_term) {
         if (prevLogTerm == -1 || log[log.length - 1]?.term == prevLogTerm) {
           if (prevLogIndex == -1 || log.length - 1 == prevLogIndex) {
             log.push({
               term: leaderTerm,
-              msg: entries[entries.length - 1]?.msg,
+              msg: entries[entries.length - 1]?.msg
             });
+            logToFile(
+              "info",
+              `Node ${nodeId} accepted AppendEntries RPC from ${leaderId}.`,
+              "dump.txt"
+            );
             callback(null, {
               term: current_term,
               success: true,
-              nodeId: nodeId,
+              nodeId: nodeId
+            });
+          } else {
+            logToFile(
+              "info",
+              `Node ${nodeId} rejected AppendEntries RPC from ${leaderId}.`,
+              "dump.txt"
+            );
+            callback(null, {
+              term: current_term,
+              success: false,
+              nodeId: nodeId
             });
           }
+        } else {
+          logToFile(
+            "info",
+            `Node ${nodeId} rejected AppendEntries RPC from ${leaderId}.`,
+            "dump.txt"
+          );
+          callback(null, {
+            term: current_term,
+            success: false,
+            nodeId: nodeId
+          });
         }
       }
     } else if (type == "req_ack") {
       let req = log[prevLogIndex + 1]?.msg;
       if (req?.split(" ")?.[0] == "SET") {
         data[req?.split(" ")?.[1]] = req?.split(" ")?.[2];
-
         commit_index = Math.min(leaderCommit, log.length - 1);
+        logToFile(
+          "info",
+          `Commit_length: ${commit_index}, Term: ${current_term}, NodeId: ${nodeId} `,
+          "metadata.txt"
+        );
         console.log("Follower", commit_index);
+        logToFile(
+          "info",
+          `Node ${nodeId} (follower) committed the entry ${req} to the state machine.`,
+          "dump.txt"
+        );
         callback(null, { term: current_term, success: true, nodeId: nodeId });
       }
     } else if (type == "log_fix") {
@@ -344,12 +482,18 @@ server.addService(grpcObj.RaftService.service, {
         if (prevLogTerm == -1 || log[prevLogIndex]?.term == prevLogTerm) {
           log = log.slice(prevLogIndex);
           log = [...log, ...entries];
+          commit_index = log.length - 1;
+          logToFile(
+            "info",
+            `Commit_length: ${commit_index}, Term: ${current_term}, NodeId: ${nodeId} `,
+            "metadata.txt"
+          );
           callback(null, { term: current_term, success: true, nodeId: nodeId });
         } else {
           callback(null, {
             term: current_term,
             success: false,
-            nodeId: nodeId,
+            nodeId: nodeId
           });
         }
       }
@@ -362,14 +506,33 @@ server.addService(grpcObj.RaftService.service, {
     resetTimeout(randsec * 1000);
     if (current_term < candidateTerm) {
       current_term = candidateTerm;
+      logToFile(
+        "info",
+        `Commit_length: ${commit_index}, Term: ${candidateTerm}, NodeId: ${nodeId} `,
+        "metadata.txt"
+      );
+      if (current_role == "leader") {
+        logToFile("info", `${nodeId} Stepping down.`, "dump.txt");
+      }
       current_role = "follower";
+
       voted_for = { ...voted_for, [candidateTerm]: candidateId };
+      logToFile(
+        "info",
+        `Vote granted for Node ${candidateId} in term ${current_term}.`,
+        "dump.txt"
+      );
       callback(null, { term: current_term, voteGranted: true, nodeId: nodeId });
     } else {
+      logToFile(
+        "info",
+        `Vote denied for Node ${candidateId} in term ${current_term}.`,
+        "dump.txt"
+      );
       callback(null, {
         term: current_term,
         voteGranted: false,
-        nodeId: nodeId,
+        nodeId: nodeId
       });
     }
   },
@@ -382,7 +545,7 @@ server.addService(grpcObj.RaftService.service, {
     );
     clusterConnectionStrings[msg] = client;
     callback(null, { result: "SUCCESS", port: PORT });
-  },
+  }
 });
 
 server.bindAsync(
@@ -408,7 +571,7 @@ peers.forEach((peer) => {
 Object.values(clusterConnectionStrings).forEach((client) => {
   client.Register(
     {
-      msg: PORT,
+      msg: PORT
     },
     (err, response) => {
       if (err) {
