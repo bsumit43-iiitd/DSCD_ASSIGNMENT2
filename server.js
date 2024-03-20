@@ -236,8 +236,8 @@ const vote = () => {
       {
         candidateTerm: current_term,
         candidateId: nodeId,
-        last_log_index: log.length - 1,
-        last_log_term: log[log.length - 1]?.current_term
+        lastLogIndex: log.length - 1,
+        lastLogTerm: log[log.length - 1]?.current_term || 0
       },
       (err, response) => {
         if (err) {
@@ -249,7 +249,7 @@ const vote = () => {
             }.`,
             "dump.txt"
           );
-          console.error("Error sending message:");
+          console.error("Error sending message vote:");
         } else {
           if (response?.voteGranted) {
             votes_received[current_term] = [
@@ -361,7 +361,7 @@ server.addService(grpcObj.RaftService.service, {
       // console.log("ResetTimeout");
       resetTimeout(randsec * 1000);
     } else if (type == "leader_ack") {
-      if (current_term < leaderTerm) {
+      if (current_term <= leaderTerm) {
         current_leader[current_term] = leaderId;
         callback(null, { term: current_term, success: true, nodeId: nodeId });
       } else {
@@ -500,12 +500,15 @@ server.addService(grpcObj.RaftService.service, {
     }
   },
   RequestVote: (call, callback) => {
-    const { candidateTerm, candidateId, last_log_index, last_log_term } =
+    const { candidateTerm, candidateId, lastLogIndex, lastLogTerm } =
       call.request;
+    console.log(call.request);
     console.log("Vote Requested By " + candidateId);
     resetTimeout(randsec * 1000);
     if (current_term < candidateTerm) {
       current_term = candidateTerm;
+      voted_for = { ...voted_for, [candidateTerm]: "" };
+
       logToFile(
         "info",
         `Commit_length: ${commit_index}, Term: ${candidateTerm}, NodeId: ${nodeId} `,
@@ -514,18 +517,46 @@ server.addService(grpcObj.RaftService.service, {
       if (current_role == "leader") {
         logToFile("info", `${nodeId} Stepping down.`, "dump.txt");
       }
-      current_role = "follower";
+      let last_term = 0;
+      if (log.length > 0) {
+        last_term = log[log.length - 1].term;
+      }
+      let log_ok =
+        lastLogTerm > last_term ||
+        (lastLogTerm == last_term && lastLogIndex + 1 >= log.length);
 
-      voted_for = { ...voted_for, [candidateTerm]: candidateId };
-      logToFile(
-        "info",
-        `Vote granted for Node ${candidateId} in term ${current_term}.`,
-        "dump.txt"
-      );
-      callback(null, { term: current_term, voteGranted: true, nodeId: nodeId });
+      if (
+        candidateTerm == current_term &&
+        log_ok &&
+        (!voted_for[candidateTerm] || voted_for[candidateTerm] == candidateId)
+      ) {
+        current_role = "follower";
+        voted_for = { ...voted_for, [candidateTerm]: candidateId };
+        logToFile(
+          "info",
+          `Vote granted for Node ${candidateId} in term ${current_term}.`,
+          "dump.txt"
+        );
+        callback(null, {
+          term: current_term,
+          voteGranted: true,
+          nodeId: nodeId
+        });
+      } else {
+        logToFile(
+          "error",
+          `Vote denied for Node ${candidateId} in term ${current_term}.`,
+          "dump.txt"
+        );
+        callback(null, {
+          term: current_term,
+          voteGranted: false,
+          nodeId: nodeId
+        });
+      }
     } else {
       logToFile(
-        "info",
+        "error",
         `Vote denied for Node ${candidateId} in term ${current_term}.`,
         "dump.txt"
       );
