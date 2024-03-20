@@ -3,8 +3,10 @@ const grpc = require("@grpc/grpc-js");
 const logToFile = require("./logging");
 const protoLoader = require("@grpc/proto-loader");
 const retrieveNodeId = require("./clusterInfo");
+const { readmetadataFile, readlogFile } = require("./readLogs");
 const uuidv4 = require("uuid").v4;
 const portIndex = process.argv.indexOf("--port");
+
 const PORT = portIndex !== -1 ? parseInt(process.argv[portIndex + 1]) : 8082;
 const PROTO_FILE = "./raft/raft.proto";
 const packageDef = protoLoader.loadSync(path.resolve(__dirname, PROTO_FILE));
@@ -34,6 +36,16 @@ let votes_received = {};
 let req_msg_vote_received = {};
 let current_term = 0;
 let commit_index = -1;
+
+readmetadataFile().then((res) => {
+  console.log("From log file metadata", res);
+  commit_index = res?.Commit_length || -1;
+  current_term = res?.Term || 0;
+});
+
+readlogFile().then((res) => {
+  log = res;
+});
 
 const log_fix = (
   client,
@@ -105,7 +117,6 @@ const req_ack = (current_term, commit_index, prevLogIndex, prevLogTerm) => {
 };
 const request_message = async (type = "heartbeat", log = []) => {
   if (type != "heartbeat") resetHeartbeat(1000);
-  // logging to logs.txt
   if (type == "heartbeat") {
     logToFile(
       "info",
@@ -167,7 +178,7 @@ const request_message = async (type = "heartbeat", log = []) => {
                   req?.split(" ")?.[0] == "SET"
                 ) {
                   data[req?.split(" ")?.[1]] = req?.split(" ")?.[2];
-                  commit_index = commit_index + 1;
+                  commit_index = parseInt(commit_index) + 1;
                   logToFile(
                     "info",
                     `Commit_length: ${commit_index}, Term: ${current_term}, NodeId: ${nodeId} `,
@@ -196,7 +207,7 @@ const request_message = async (type = "heartbeat", log = []) => {
                   clearInterval(heartbeatId);
                 }
               } else {
-                //log inconsistency case
+                // log inconsistency case
                 log_fix(
                   client,
                   current_term,
@@ -214,7 +225,7 @@ const request_message = async (type = "heartbeat", log = []) => {
 };
 
 const vote = () => {
-  current_term = current_term + 1;
+  current_term = parseInt(current_term) + 1;
   //let count = 1;
   votes_received[current_term] = [nodeId];
   current_role = "candidate";
@@ -237,7 +248,7 @@ const vote = () => {
         candidateTerm: current_term,
         candidateId: nodeId,
         lastLogIndex: log.length - 1,
-        lastLogTerm: log[log.length - 1]?.current_term || 0
+        lastLogTerm: log[log.length - 1]?.term || 0
       },
       (err, response) => {
         if (err) {
@@ -385,6 +396,11 @@ server.addService(grpcObj.RaftService.service, {
             });
             logToFile(
               "info",
+              `${entries[entries.length - 1]?.msg} ${leaderTerm}`,
+              "logs.txt"
+            );
+            logToFile(
+              "info",
               `Node ${nodeId} accepted AppendEntries RPC from ${leaderId}.`,
               "dump.txt"
             );
@@ -424,6 +440,11 @@ server.addService(grpcObj.RaftService.service, {
               term: leaderTerm,
               msg: entries[entries.length - 1]?.msg
             });
+            logToFile(
+              "info",
+              `${entries[entries.length - 1]?.msg} ${leaderTerm}`,
+              "logs.txt"
+            );
             logToFile(
               "info",
               `Node ${nodeId} accepted AppendEntries RPC from ${leaderId}.`,
@@ -524,7 +545,13 @@ server.addService(grpcObj.RaftService.service, {
       let log_ok =
         lastLogTerm > last_term ||
         (lastLogTerm == last_term && lastLogIndex + 1 >= log.length);
-
+      console.log(lastLogTerm, last_term, lastLogIndex, log.length);
+      console.log(
+        candidateTerm,
+        current_term,
+        log_ok,
+        voted_for[candidateTerm]
+      );
       if (
         candidateTerm == current_term &&
         log_ok &&
@@ -543,6 +570,7 @@ server.addService(grpcObj.RaftService.service, {
           nodeId: nodeId
         });
       } else {
+        console.log("hd");
         logToFile(
           "error",
           `Vote denied for Node ${candidateId} in term ${current_term}.`,
@@ -555,6 +583,7 @@ server.addService(grpcObj.RaftService.service, {
         });
       }
     } else {
+      console.log("h");
       logToFile(
         "error",
         `Vote denied for Node ${candidateId} in term ${current_term}.`,

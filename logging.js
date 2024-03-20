@@ -20,6 +20,7 @@ const logToFile = (level, message, filename) => {
   });
 };
 
+
 const logDir = path.join(__dirname, `logs_node_${nodeId}`);
 if (!fs.existsSync(logDir)) {
   fs.mkdirSync(logDir);
