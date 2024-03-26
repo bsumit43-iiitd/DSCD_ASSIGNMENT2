@@ -47,8 +47,7 @@ message AppendEntryRequest {
     repeated entries entries = 5;
     int32 leader_commit = 6;
     string type = 7;
-    //int32 lease_duration = 5; // Added for leader lease
-    // TODO: Add log entries and other necessary fields
+    int32 leaseDuration = 8; 
 }
 
 message AppendEntryReply {

@@ -26,7 +26,17 @@ console.log("NodeId " + nodeId);
 let timeoutId;
 let heartbeatId;
 
+// leader lease
+let leaseTimeoutId;
+
+let leaseAcquired = false;
+let maxLeaseTimeout = 0;
+let leaseExpiration = Date.now();
+console.log(leaseExpiration);
+
 let data = {};
+
+let heartBeatVote = [];
 
 let voted_for = {};
 let current_leader = {};
@@ -118,6 +128,7 @@ const req_ack = (current_term, commit_index, prevLogIndex, prevLogTerm) => {
 const request_message = async (type = "heartbeat", log = []) => {
   if (type != "heartbeat") resetHeartbeat(1000);
   if (type == "heartbeat") {
+    heartBeatVote = [nodeId];
     logToFile(
       "info",
       `Leader ${current_term} sending heartbeat & Renewing Lease`,
@@ -153,6 +164,16 @@ const request_message = async (type = "heartbeat", log = []) => {
         } else {
           console.log(type, response);
           if (type == "heartbeat") {
+            if (response?.success) {
+              heartBeatVote.push(response?.nodeId);
+            }
+            if (
+              heartBeatVote?.length + 1 >
+              Math.ceil((Object.keys(clusterConnectionStrings)?.length + 1) / 2)
+            ) {
+              leaseExpiration = Date.now() + 10000;
+              resetLeaseTimeout(10000, releaseLease);
+            }
             console.log("Success...");
           } else if (type == "request_msg") {
             if (response?.success) {
@@ -263,6 +284,11 @@ const vote = () => {
           console.error("Error sending message vote:");
         } else {
           if (response?.voteGranted) {
+            maxLeaseTimeout = Math.max(
+              maxLeaseTimeout,
+              response?.oldLeaderLeaseDuration || 0
+            );
+            console.log("maxLeaseTimeout", maxLeaseTimeout);
             votes_received[current_term] = [
               ...votes_received[current_term],
               response?.nodeId
@@ -273,7 +299,8 @@ const vote = () => {
             votes_received[current_term]?.length + 1 >
               Math.ceil((Object.keys(clusterConnectionStrings)?.length + 1) / 2)
           ) {
-            resetHeartbeat(1000);
+            resetLeaseTimeout(maxLeaseTimeout, acquireLease);
+            // resetHeartbeat(1000); //will not do in case of leaderlease
             console.log("I am a leader");
             current_role = "leader";
             current_leader[current_term] = nodeId;
@@ -285,6 +312,19 @@ const vote = () => {
             request_message("leader_ack");
 
             // resetTimeout(randsec * 1000);
+          } else if (
+            current_role == "leader" &&
+            votes_received[current_term]?.length + 1 >
+              Math.ceil((Object.keys(clusterConnectionStrings)?.length + 1) / 2)
+          ) {
+            if (
+              leaseExpiration - Date.now() <
+              response?.oldLeaderLeaseDuration
+            ) {
+              maxLeaseTimeout = response?.oldLeaderLeaseDuration;
+              leaseExpiration = Date.now() + response?.oldLeaderLeaseDuration;
+              resetLeaseTimeout(maxLeaseTimeout, acquireLease);
+            }
           }
           console.log(
             "vote_granted -> " +
@@ -303,6 +343,30 @@ const resetTimeout = (delay) => {
     clearTimeout(timeoutId);
   }
   timeoutId = setTimeout(vote, delay);
+  // console.log(`Timeout reset for ${delay} milliseconds`);
+};
+
+const followerLease = () => {};
+const releaseLease = () => {
+  leaseAcquired = false;
+  current_role = "follower";
+};
+
+const acquireLease = () => {
+  resetHeartbeat(1000);
+  maxLeaseTimeout = 0;
+  leaseAcquired = true;
+  resetLeaseTimeout(10000, releaseLease);
+  // Add NO_OP here
+};
+
+const resetLeaseTimeout = (delay, leaseTimeoutFunc) => {
+  console.log("Lease time initiated");
+  if (leaseTimeoutId) {
+    clearTimeout(leaseTimeoutId);
+  }
+  leaseExpiration = Date.now() + delay;
+  leaseTimeoutId = setTimeout(leaseTimeoutFunc, delay);
   // console.log(`Timeout reset for ${delay} milliseconds`);
 };
 
@@ -370,6 +434,9 @@ server.addService(grpcObj.RaftService.service, {
     console.log(type);
     if (type == "heartbeat") {
       // console.log("ResetTimeout");
+      leaseExpiration = Date.now() + 10000;
+      resetLeaseTimeout(10000, followerLease);
+      callback(null, { term: current_term, success: true, nodeId: nodeId });
       resetTimeout(randsec * 1000);
     } else if (type == "leader_ack") {
       if (current_term <= leaderTerm) {
@@ -564,10 +631,13 @@ server.addService(grpcObj.RaftService.service, {
           `Vote granted for Node ${candidateId} in term ${current_term}.`,
           "dump.txt"
         );
+        let dur = leaseExpiration - Date.now();
+        console.log(dur);
         callback(null, {
           term: current_term,
           voteGranted: true,
-          nodeId: nodeId
+          nodeId: nodeId,
+          oldLeaderLeaseDuration: dur > 0 ? dur : 0
         });
       } else {
         console.log("hd");
