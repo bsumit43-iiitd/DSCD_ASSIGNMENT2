@@ -146,7 +146,12 @@ const request_message = async (type = "heartbeat", log = []) => {
         leaderId: nodeId,
         prevLogIndex: log.length - 2,
         prevLogTerm: log[log.length - 2]?.term || -1,
-        entries: type == "heartbeat" ? [] : log.slice(-1),
+        entries:
+          type == "heartbeat"
+            ? []
+            : type == "no_op"
+            ? log.slice(-1)
+            : log.slice(-1), // This will get changed
         leaderCommit: temp_commit_index,
         type: type
       },
@@ -175,7 +180,7 @@ const request_message = async (type = "heartbeat", log = []) => {
               resetLeaseTimeout(10000, releaseLease);
             }
             console.log("Success...");
-          } else if (type == "request_msg") {
+          } else if (type == "request_msg" || type == "no_op") {
             if (response?.success) {
               if (req_msg_vote_received[prevLogIndex + 1]) {
                 req_msg_vote_received[prevLogIndex + 1] = [
@@ -210,6 +215,20 @@ const request_message = async (type = "heartbeat", log = []) => {
                     "info",
                     `Node ${nodeId} (leader) committed the entry ${req} to the state machine.`,
                     "dump.txt"
+                  );
+                  req_ack(
+                    temp_current_term,
+                    commit_index,
+                    prevLogIndex,
+                    prevLogTerm
+                  );
+                  return;
+                } else if (req?.split(" ")?.[0] == "NO-OP") {
+                  commit_index = parseInt(commit_index) + 1;
+                  logToFile(
+                    "info",
+                    `Commit_length: ${commit_index}, Term: ${current_term}, NodeId: ${nodeId} `,
+                    "metadata.txt"
                   );
                   req_ack(
                     temp_current_term,
@@ -299,6 +318,8 @@ const vote = () => {
             votes_received[current_term]?.length + 1 >
               Math.ceil((Object.keys(clusterConnectionStrings)?.length + 1) / 2)
           ) {
+            console.log("SDSSSdfsssssssssssssssssssssssssssssssssssssssss")
+            console.log(maxLeaseTimeout)
             resetLeaseTimeout(maxLeaseTimeout, acquireLease);
             // resetHeartbeat(1000); //will not do in case of leaderlease
             console.log("I am a leader");
@@ -353,11 +374,15 @@ const releaseLease = () => {
 };
 
 const acquireLease = () => {
+  console.log("dfsssssssssssssssssssssssssssssssssssssssss")
   resetHeartbeat(1000);
   maxLeaseTimeout = 0;
   leaseAcquired = true;
   resetLeaseTimeout(10000, releaseLease);
   // Add NO_OP here
+  log.push({ term: current_term, msg: "NO-OP" });
+  logToFile("info", `NO-OP ${current_term}`, "logs.txt");
+  request_message("no_op", log);
 };
 
 const resetLeaseTimeout = (delay, leaseTimeoutFunc) => {
@@ -445,7 +470,7 @@ server.addService(grpcObj.RaftService.service, {
       } else {
         callback(null, { term: current_term, success: false, nodeId: nodeId });
       }
-    } else if (type == "request_msg") {
+    } else if (type == "request_msg" || type == "no_op") {
       if (leaderTerm < current_term) {
         logToFile(
           "info",
@@ -564,6 +589,13 @@ server.addService(grpcObj.RaftService.service, {
           "dump.txt"
         );
         callback(null, { term: current_term, success: true, nodeId: nodeId });
+      } else if (req?.split(" ")?.[0] == "SET") {
+        commit_index = Math.min(leaderCommit, log.length - 1);
+        logToFile(
+          "info",
+          `Commit_length: ${commit_index}, Term: ${current_term}, NodeId: ${nodeId} `,
+          "metadata.txt"
+        );
       }
     } else if (type == "log_fix") {
       if (prevLogIndex == -1 || log.length - 1 >= prevLogIndex) {
