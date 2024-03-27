@@ -1,6 +1,0 @@
-[2024-03-27T06:50:55.322Z] [INFO] - Commit_length: -1, Term: 1, NodeId: 2 
-[2024-03-27T06:50:58.456Z] [INFO] - Commit_length: 1, Term: 1, NodeId: 2 
-[2024-03-27T06:50:58.457Z] [INFO] - Commit_length: 2, Term: 1, NodeId: 2 
-[2024-03-27T06:50:58.463Z] [INFO] - Commit_length: 3, Term: 1, NodeId: 2 
-[2024-03-27T06:51:32.496Z] [INFO] - Commit_length: 3, Term: 2, NodeId: 2 
-[2024-03-27T06:51:40.510Z] [INFO] - Commit_length: 3, Term: 3, NodeId: 2 
