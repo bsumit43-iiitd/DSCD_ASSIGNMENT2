@@ -6,6 +6,21 @@ const nodeIdIndex = process.argv.indexOf("--nodeId");
 const nodeId = nodeIdIndex !== -1 ? parseInt(process.argv[nodeIdIndex + 1]) : 0;
 
 
+
+function removeFileContent(filePath) {
+  const logFilePath = path.join(__dirname, `logs_node_${nodeId}`, filePath);
+  return new Promise((resolve, reject) => {
+    fs.truncate(logFilePath, 0, (err) => {
+      if (err) {
+        reject(err); // Reject with error if there's an issue
+      } else {
+        resolve('File content removed successfully.'); // Resolve with success message
+      }
+    });
+  });
+}
+
+
 const logToFile = (level, message, filename) => {
   const timestamp = new Date().toISOString();
 
@@ -39,4 +54,4 @@ if (!fs.existsSync(logDir)) {
 // logToFile("error", "This is an error message.", "metadata.txt");
 // logToFile("info", "This is an access log message.", "dump.txt");
 
-module.exports = logToFile;
+module.exports = {logToFile, removeFileContent};

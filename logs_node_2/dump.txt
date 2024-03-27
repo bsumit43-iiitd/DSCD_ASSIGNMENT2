@@ -1,71 +1,13 @@
-[2024-03-26T17:11:23.441Z] [INFO] - Vote granted for Node 1 in term 1.
-[2024-03-26T17:11:23.450Z] [INFO] - Node 2 accepted AppendEntries RPC from 1.
-[2024-03-26T17:11:28.748Z] [INFO] - Node 2 accepted AppendEntries RPC from 1.
-[2024-03-26T17:11:28.748Z] [INFO] - Node 2 accepted AppendEntries RPC from 1.
-[2024-03-26T17:11:28.748Z] [INFO] - Node 2 accepted AppendEntries RPC from 1.
-[2024-03-26T17:11:28.752Z] [INFO] - Node 2 (follower) committed the entry SET a 5 to the state machine.
-[2024-03-26T17:11:28.752Z] [INFO] - Node 2 (follower) committed the entry SET b df to the state machine.
-[2024-03-26T17:11:28.752Z] [INFO] - Node 2 (follower) committed the entry SET c 324 to the state machine.
-[2024-03-26T17:11:57.781Z] [INFO] - Vote granted for Node 3 in term 2.
-[2024-03-26T17:14:28.028Z] [INFO] - Node 2 election timer timed out, Starting election.
-[2024-03-26T17:14:28.035Z] [INFO] - Node 2 became the leader for term 3.
-[2024-03-26T17:14:29.042Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:30.043Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:31.042Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:32.042Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:32.215Z] [INFO] - Node 2 (leader) received an SET a 5 request.
-[2024-03-26T17:14:32.216Z] [INFO] - Node 2 (leader) received an SET b df request.
-[2024-03-26T17:14:32.220Z] [INFO] - Node 2 (leader) committed the entry SET a 5 to the state machine.
-[2024-03-26T17:14:32.220Z] [INFO] - Node 2 (leader) committed the entry SET b df to the state machine.
-[2024-03-26T17:14:32.227Z] [INFO] - Node 2 (leader) received an SET c 324 request.
-[2024-03-26T17:14:32.229Z] [INFO] - Node 2 (leader) committed the entry SET c 324 to the state machine.
-[2024-03-26T17:14:33.229Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:34.230Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:35.231Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:36.231Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:37.196Z] [INFO] - Node 2 (leader) received an GET a request.
-[2024-03-26T17:14:37.197Z] [INFO] - Node 2 (leader) received an GET b request.
-[2024-03-26T17:14:37.197Z] [INFO] - Node 2 (leader) received an GET c request.
-[2024-03-26T17:14:37.232Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:38.232Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:39.233Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:40.233Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:41.234Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:42.234Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:43.235Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:44.236Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:45.238Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:46.239Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:47.240Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:48.241Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:49.242Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:50.243Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:51.243Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:52.243Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:53.244Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:54.246Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:55.247Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:56.248Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:57.249Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:58.250Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:59.251Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:15:00.251Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:15:01.252Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:15:02.252Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:15:03.253Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:15:04.254Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:15:05.255Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:15:06.256Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:15:07.257Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:15:08.258Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:15:09.259Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:15:10.259Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:15:11.259Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:15:12.260Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:15:13.261Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:15:14.263Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:15:15.263Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:15:16.265Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:15:17.266Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:15:18.267Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
-[2024-03-26T17:15:19.267Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
+[2024-03-27T06:50:55.322Z] [INFO] - Vote granted for Node 3 in term 1.
+[2024-03-27T06:50:55.328Z] [INFO] - Node 2 accepted AppendEntries RPC from 3.
+[2024-03-27T06:50:58.454Z] [INFO] - Node 2 accepted AppendEntries RPC from 3.
+[2024-03-27T06:50:58.454Z] [INFO] - Node 2 accepted AppendEntries RPC from 3.
+[2024-03-27T06:50:58.456Z] [INFO] - Node 2 (follower) committed the entry SET a 5 to the state machine.
+[2024-03-27T06:50:58.457Z] [INFO] - Node 2 (follower) committed the entry SET b df to the state machine.
+[2024-03-27T06:50:58.462Z] [INFO] - Node 2 accepted AppendEntries RPC from 3.
+[2024-03-27T06:50:58.463Z] [INFO] - Node 2 (follower) committed the entry SET c 324 to the state machine.
+[2024-03-27T06:51:32.496Z] [INFO] - Node 2 election timer timed out, Starting election.
+[2024-03-27T06:51:32.502Z] [ERROR] - Error occurred while sending RPC to Node 3.
+[2024-03-27T06:51:32.510Z] [ERROR] - Vote denied for Node 1 in term 2.
+[2024-03-27T06:51:40.510Z] [INFO] - Vote granted for Node 1 in term 3.
+[2024-03-27T06:51:40.513Z] [INFO] - Node 2 accepted AppendEntries RPC from 1.
