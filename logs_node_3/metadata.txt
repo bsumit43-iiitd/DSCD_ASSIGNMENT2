@@ -1,10 +1,5 @@
-[2024-03-26T17:11:23.441Z] [INFO] - Commit_length: -1, Term: 1, NodeId: 3 
-[2024-03-26T17:11:28.751Z] [INFO] - Commit_length: 1, Term: 1, NodeId: 3 
-[2024-03-26T17:11:28.752Z] [INFO] - Commit_length: 2, Term: 1, NodeId: 3 
-[2024-03-26T17:11:28.752Z] [INFO] - Commit_length: 3, Term: 1, NodeId: 3 
-[2024-03-26T17:11:57.777Z] [INFO] - Commit_length: 3, Term: 2, NodeId: 3 
-[2024-03-26T17:14:28.034Z] [INFO] - Commit_length: 3, Term: 3, NodeId: 3 
-[2024-03-26T17:14:32.221Z] [INFO] - Commit_length: 5, Term: 3, NodeId: 3 
-[2024-03-26T17:14:32.221Z] [INFO] - Commit_length: 6, Term: 3, NodeId: 3 
-[2024-03-26T17:14:32.229Z] [INFO] - Commit_length: 7, Term: 3, NodeId: 3 
-[2024-03-26T17:15:28.287Z] [INFO] - Commit_length: 7, Term: 4, NodeId: 3 
+[2024-03-27T06:50:55.314Z] [INFO] - Commit_length: -1, Term: 1, NodeId: 3 
+[2024-03-27T06:50:55.330Z] [INFO] - Commit_length: 0, Term: 1, NodeId: 3 
+[2024-03-27T06:50:58.455Z] [INFO] - Commit_length: 1, Term: 1, NodeId: 3 
+[2024-03-27T06:50:58.456Z] [INFO] - Commit_length: 2, Term: 1, NodeId: 3 
+[2024-03-27T06:50:58.463Z] [INFO] - Commit_length: 3, Term: 1, NodeId: 3 
