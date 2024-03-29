@@ -70,7 +70,7 @@ const log_fix = (
       leaderId: nodeId,
       prevLogIndex: prevLogIndex,
       prevLogTerm: prevLogTerm,
-      entries: log.slice(prevLogIndex + 1, commit_index),
+      entries: log.slice(commit_index+1,prevLogIndex),
       leaderCommit: commit_index,
       type: "log_fix"
     },
@@ -165,6 +165,7 @@ const request_message = async (type = "heartbeat", log = []) => {
             }.`,
             "dump.txt"
           );
+
           console.error("Error sending message:");
         } else {
           console.log(type, response);
@@ -197,14 +198,19 @@ const request_message = async (type = "heartbeat", log = []) => {
                   (Object.keys(clusterConnectionStrings)?.length + 1) / 2
                 )
               ) {
-                let req = log[prevLogIndex + 1].msg;
-
-                if (
-                  // temp_commit_index == commit_index &&
-                  req?.split(" ")?.[0] == "SET"
-                ) {
-                  data[req?.split(" ")?.[1]] = req?.split(" ")?.[2];
-                  commit_index = parseInt(commit_index) + 1;
+                let req;
+                for(let i = commit_index + 1; i < log.length; i++)
+                {
+                    req = log[i].msg;
+                    if (temp_commit_index == commit_index && req?.split(" ")?.[0] == "SET") {
+                        data[req?.split(" ")?.[1]] = req?.split(" ")?.[2];
+                        commit_index = Math.max(commit_index , i);
+                        temp_commit_index = commit_index;
+                      
+                // if (temp_commit_index == commit_index && req?.split(" ")?.[0] == "SET"
+                // ) {
+                //   data[req?.split(" ")?.[1]] = req?.split(" ")?.[2];
+                //   commit_index = parseInt(commit_index) + 1;
                   logToFile(
                     "info",
                     `Commit_length: ${commit_index}, Term: ${current_term}, NodeId: ${nodeId} `,
@@ -216,6 +222,7 @@ const request_message = async (type = "heartbeat", log = []) => {
                     `Node ${nodeId} (leader) committed the entry ${req} to the state machine.`,
                     "dump.txt"
                   );
+                  }
                   req_ack(
                     temp_current_term,
                     commit_index,
@@ -223,7 +230,8 @@ const request_message = async (type = "heartbeat", log = []) => {
                     prevLogTerm
                   );
                   return;
-                } else if (req?.split(" ")?.[0] == "NO-OP") {
+                }
+                  if(req?.split(" ")?.[0] == "NO-OP") {
                   commit_index = parseInt(commit_index) + 1;
                   logToFile(
                     "info",
@@ -246,6 +254,7 @@ const request_message = async (type = "heartbeat", log = []) => {
                 if (heartbeatId) {
                   clearInterval(heartbeatId);
                 }
+
               } else {
                 // log inconsistency case
                 log_fix(
@@ -374,7 +383,6 @@ const releaseLease = () => {
 };
 
 const acquireLease = () => {
-  console.log("dfsssssssssssssssssssssssssssssssssssssssss")
   resetHeartbeat(1000);
   maxLeaseTimeout = 0;
   leaseAcquired = true;
@@ -437,11 +445,23 @@ server.addService(grpcObj.RaftService.service, {
         log.push({ term: current_term, msg: request });
         // logging to logs.txt
         logToFile("info", `${tmp} ${current_term}`, "logs.txt");
+        const timeoutDuration = 5000; 
+        let timeoutReached = false;
+        const timeoutId = setTimeout(() => {
+        timeoutReached = true;
+        callback(null, {
+            data: `Set Value is unsuccessfull at key = ${key} and value = ${val}`,
+            success: false
+        });
+    }, timeoutDuration);
         request_message("request_msg", log).then((res) => {
-          callback(null, {
-            data: `Set Value successfully at key = ${key} and value = ${val}`,
-            success: true
-          });
+          if (!timeoutReached) {
+            clearTimeout(timeoutId); // Clear the timeout
+            callback(null, {
+                data: `Set Value successfully at key = ${key} and value = ${val}`,
+                success: true
+            });
+        }
         });
       }
     }
@@ -482,10 +502,18 @@ server.addService(grpcObj.RaftService.service, {
         leaderTerm == current_term;
         if (prevLogTerm == -1 || log[log.length - 1]?.term == prevLogTerm) {
           if (prevLogIndex == -1 || log.length - 1 == prevLogIndex) {
-            log.push({
-              term: leaderTerm,
-              msg: entries[entries.length - 1]?.msg
-            });
+            let len = entries.length;
+            let count = 0;
+            for (let temp = leaderCommit + 1; temp <= prevLogIndex+1; temp++) {
+                if(count < len){
+                    log[temp] = {term: entries[count].term, msg: entries[count].msg};
+                }
+                count++;
+            }
+            //log.push({
+              //term: leaderTerm,
+              //msg: entries[entries.length - 1]?.msg
+            //});
             logToFile(
               "info",
               `${entries[entries.length - 1]?.msg} ${leaderTerm}`,
@@ -528,10 +556,22 @@ server.addService(grpcObj.RaftService.service, {
       } else if (leaderTerm == current_term) {
         if (prevLogTerm == -1 || log[log.length - 1]?.term == prevLogTerm) {
           if (prevLogIndex == -1 || log.length - 1 == prevLogIndex) {
-            log.push({
-              term: leaderTerm,
-              msg: entries[entries.length - 1]?.msg
-            });
+            let len = entries.length;
+            let count = 0;
+            for (let temp = leaderCommit + 1; temp <= prevLogIndex+1; temp++) {
+                if(count < len){
+                    log[temp] = {term: entries[count].term, msg: entries[count].msg};
+                }
+                count++;
+            }
+            //log.push({
+              //term: leaderTerm,
+              //msg: entries[entries.length - 1]?.msg
+            //});
+           // log.push({
+           //   term: leaderTerm,
+            //  msg: entries[entries.length - 1]?.msg
+            //});
             logToFile(
               "info",
               `${entries[entries.length - 1]?.msg} ${leaderTerm}`,

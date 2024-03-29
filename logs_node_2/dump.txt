@@ -69,3 +69,556 @@
 [2024-03-26T17:15:17.266Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
 [2024-03-26T17:15:18.267Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
 [2024-03-26T17:15:19.267Z] [INFO] - Leader 3 sending heartbeat & Renewing Lease
+[2024-03-29T11:40:14.217Z] [INFO] - Node 2 became the leader for term 4.
+[2024-03-29T11:40:14.200Z] [INFO] - Node 2 election timer timed out, Starting election.
+[2024-03-29T11:40:14.241Z] [INFO] - 2 Stepping down.
+[2024-03-29T11:40:21.233Z] [INFO] - Vote granted for Node 1 in term 8.
+[2024-03-29T11:42:51.512Z] [INFO] - Vote granted for Node 1 in term 9.
+[2024-03-29T11:42:51.545Z] [INFO] - Node 2 accepted AppendEntries RPC from 1.
+[2024-03-29T11:43:00.527Z] [INFO] - Node 2 election timer timed out, Starting election.
+[2024-03-29T11:43:00.538Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:00.569Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:00.574Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:00.559Z] [INFO] - Node 2 became the leader for term 10.
+[2024-03-29T11:43:01.582Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:01.585Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:02.589Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:02.591Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:03.598Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:03.603Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:04.608Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:04.611Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:05.613Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:05.615Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:06.617Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:06.618Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:07.625Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:07.627Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:08.635Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:08.636Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:09.642Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:09.644Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:10.645Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:10.646Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:11.653Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:11.655Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:12.662Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:12.664Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:13.671Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:13.672Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:14.674Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:14.675Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:15.678Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:15.676Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:16.683Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:16.685Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:17.693Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:17.695Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:18.701Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:18.702Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:19.707Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:19.710Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:20.716Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:20.715Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:21.716Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:21.717Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:22.718Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:22.720Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:23.722Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:23.723Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:24.735Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:24.737Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:25.750Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:25.751Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:26.752Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:26.754Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:27.754Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:27.756Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:28.755Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:28.757Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:29.770Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:29.771Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:30.773Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:30.774Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:31.788Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:31.790Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:32.803Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:32.804Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:33.804Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:33.806Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:34.810Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:34.811Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:35.821Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:35.822Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:36.827Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:36.829Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:37.831Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:37.829Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:38.835Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:38.836Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:39.840Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:39.842Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:40.849Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:40.847Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:41.852Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:41.853Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:42.853Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:42.855Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:43.862Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:43.861Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:44.866Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:44.867Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:45.867Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:45.869Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:46.872Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:46.874Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:47.881Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:47.882Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:48.894Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:48.895Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:49.901Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:49.903Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:50.906Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:50.907Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:51.919Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:51.921Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:52.923Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:52.924Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:53.933Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:53.934Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:54.940Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:54.942Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:55.950Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:55.949Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:56.961Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:56.962Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:57.972Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:57.974Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:58.989Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:43:58.987Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:59.991Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:43:59.993Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:00.998Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:01.000Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:02.009Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:02.010Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:03.019Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:03.017Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:04.030Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:04.032Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:05.038Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:05.039Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:06.051Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:06.053Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:07.061Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:07.059Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:08.073Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:08.076Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:09.079Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:09.080Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:10.088Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:10.090Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:11.096Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:11.095Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:12.104Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:12.105Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:13.119Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:13.120Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:14.119Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:14.121Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:15.130Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:15.131Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:16.140Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:16.141Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:17.142Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:17.143Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:18.149Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:18.150Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:19.157Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:19.158Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:20.165Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:20.166Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:21.166Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:21.167Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:22.172Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:22.174Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:23.181Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:23.182Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:24.193Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:24.194Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:25.207Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:25.205Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:26.213Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:26.215Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:27.224Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:27.226Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:28.229Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:28.231Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:29.239Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:29.240Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:30.247Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:30.248Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:31.256Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:31.258Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:32.264Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:32.265Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:33.277Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:33.275Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:34.287Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:34.288Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:35.294Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:35.293Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:36.297Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:36.298Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:37.310Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:37.312Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:38.317Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:38.318Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:39.331Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:39.333Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:40.336Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:40.337Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:41.343Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:41.345Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:42.355Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:42.357Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:43.364Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:43.366Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:44.379Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:44.380Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:45.387Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:45.389Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:46.393Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:46.394Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:47.398Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:47.400Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:48.405Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:48.404Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:49.413Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:49.415Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:50.417Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:50.419Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:51.427Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:51.429Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:52.437Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:52.439Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:53.441Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:53.442Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:54.449Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:54.450Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:55.459Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:55.460Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:56.470Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:56.471Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:57.470Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:57.472Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:58.483Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:58.485Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:44:59.490Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:44:59.491Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:00.502Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:00.504Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:01.514Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:01.515Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:02.526Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:02.528Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:03.539Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:03.540Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:04.548Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:04.552Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:05.556Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:05.558Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:06.560Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:06.566Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:07.570Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:07.572Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:08.575Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:08.577Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:09.581Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:09.582Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:10.592Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:10.594Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:11.601Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:11.602Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:12.610Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:12.611Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:13.621Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:13.622Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:14.632Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:14.629Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:15.640Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:15.643Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:16.651Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:16.652Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:17.658Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:17.660Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:18.670Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:18.669Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:19.682Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:19.684Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:20.694Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:20.695Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:21.705Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:21.706Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:22.712Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:22.714Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:23.719Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:23.720Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:24.730Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:24.732Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:25.739Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:25.740Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:26.745Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:26.746Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:27.757Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:27.758Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:28.772Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:28.774Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:29.780Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:29.781Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:30.790Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:30.792Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:31.797Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:31.799Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:32.804Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:32.807Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:33.809Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:33.812Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:34.819Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:34.820Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:35.823Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:35.825Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:36.828Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:36.830Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:37.835Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:37.836Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:38.843Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:38.844Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:39.850Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:39.851Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:40.864Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:40.866Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:41.868Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:41.870Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:42.877Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:42.878Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:43.888Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:43.890Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:44.899Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:44.901Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:45.914Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:45.916Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:46.923Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:46.925Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:47.936Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:47.937Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:48.949Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:48.951Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:49.959Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:49.960Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:50.967Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:50.969Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:51.979Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:51.981Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:52.990Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:52.991Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:53.990Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:53.992Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:54.997Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:54.999Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:56.004Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:56.006Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:57.012Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:57.013Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:58.016Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:58.018Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:45:59.027Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:45:59.029Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:46:00.037Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:46:00.039Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:46:01.046Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:46:01.048Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:46:02.059Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:46:02.061Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:46:03.073Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:46:03.075Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:46:04.087Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:46:04.088Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:46:05.100Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:46:05.102Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:46:06.111Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:46:06.113Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:46:07.122Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:46:07.124Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:46:08.136Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:46:08.137Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:46:09.142Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:46:09.144Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:46:10.156Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:46:10.159Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:46:11.164Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:46:11.166Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:46:12.176Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:46:12.177Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:46:13.186Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:46:13.187Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:46:14.195Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:46:14.196Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:46:15.199Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:46:15.201Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:46:16.207Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:46:16.208Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:46:17.219Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:46:17.221Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:46:18.224Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:46:18.226Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:46:19.238Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:46:19.239Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:46:20.248Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:46:20.250Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:46:21.254Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:46:21.255Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:46:22.258Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:46:22.260Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:46:23.271Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:46:23.272Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:46:24.281Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:46:24.283Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:46:25.289Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:46:25.290Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:46:26.299Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:46:26.302Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:46:27.306Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:46:27.307Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:46:28.313Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:46:28.314Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:46:29.319Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:46:29.322Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:46:30.327Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:46:30.328Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:46:31.327Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:46:31.329Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:46:32.332Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:46:32.333Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:46:33.339Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:46:33.341Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:46:34.344Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:46:34.345Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:46:35.353Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:46:35.355Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:46:36.364Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-29T11:46:36.366Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T11:47:38.358Z] [ERROR] - Vote denied for Node 1 in term 10.
+[2024-03-29T11:47:45.371Z] [ERROR] - Vote denied for Node 3 in term 11.
+[2024-03-29T11:47:52.382Z] [ERROR] - Vote denied for Node 1 in term 12.
+[2024-03-29T11:47:52.422Z] [INFO] - Node 2 rejected AppendEntries RPC from 1.
+[2024-03-29T11:47:52.423Z] [INFO] - Node 2 rejected AppendEntries RPC from 1.
+[2024-03-29T11:57:37.432Z] [INFO] - Node 2 election timer timed out, Starting election.
+[2024-03-29T11:57:37.457Z] [INFO] - Node 2 became the leader for term 13.
+[2024-03-29T11:57:38.474Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:57:39.482Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:57:40.491Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:57:41.505Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:57:42.512Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:57:43.526Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:57:44.540Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:57:45.550Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:57:46.562Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:57:47.565Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:57:48.572Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:57:49.582Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:57:50.594Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:57:51.604Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:57:52.612Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:57:53.621Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:57:54.629Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:57:55.641Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:57:56.648Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:57:57.656Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:57:58.668Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:57:59.670Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:00.678Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:01.686Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:02.696Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:03.701Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:04.710Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:05.717Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:06.726Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:07.731Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:08.737Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:09.748Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:10.755Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:11.761Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:12.769Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:13.774Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:14.781Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:15.796Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:16.806Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:17.819Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:18.826Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:19.835Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:20.848Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:21.862Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:22.872Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:23.883Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:24.895Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:25.903Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:26.911Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:27.922Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:28.931Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:29.936Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:30.950Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:31.965Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:32.975Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:33.981Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:34.993Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:36.003Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:37.013Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:38.021Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:39.029Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:40.038Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:41.051Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:42.054Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:43.060Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:44.073Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:45.082Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:46.090Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:47.097Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:48.108Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:49.115Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:50.131Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:51.134Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:52.146Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:53.153Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:54.167Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:55.178Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:56.189Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:57.202Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:58.213Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:58:59.225Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:59:00.233Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:59:01.242Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:59:02.251Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:59:03.261Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:59:04.270Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:59:05.282Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:59:06.282Z] [INFO] - Leader 13 sending heartbeat & Renewing Lease
+[2024-03-29T11:59:06.291Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T12:00:43.216Z] [ERROR] - Vote denied for Node 1 in term 14.
+[2024-03-29T12:00:43.258Z] [INFO] - Node 2 rejected AppendEntries RPC from 1.
+[2024-03-29T12:01:35.654Z] [INFO] - Node 2 election timer timed out, Starting election.
+[2024-03-29T12:01:35.665Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T12:01:35.662Z] [ERROR] - Vote denied for Node 3 in term 15.
+[2024-03-29T12:01:44.667Z] [INFO] - Node 2 election timer timed out, Starting election.
+[2024-03-29T12:01:44.670Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T12:01:44.678Z] [ERROR] - Vote denied for Node 3 in term 16.
+[2024-03-29T12:01:53.686Z] [INFO] - Node 2 election timer timed out, Starting election.
+[2024-03-29T12:01:53.688Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T12:01:53.690Z] [ERROR] - Vote denied for Node 3 in term 17.
+[2024-03-29T12:02:45.335Z] [ERROR] - Vote denied for Node 3 in term 18.
+[2024-03-29T12:02:54.368Z] [INFO] - Vote granted for Node 1 in term 19.
+[2024-03-29T12:02:54.409Z] [INFO] - Node 2 rejected AppendEntries RPC from 1.
+[2024-03-29T12:02:54.560Z] [INFO] - Node 2 rejected AppendEntries RPC from 1.
+[2024-03-29T13:11:15.896Z] [INFO] - Node 2 election timer timed out, Starting election.
+[2024-03-29T13:11:15.904Z] [ERROR] - Vote denied for Node 3 in term 20.
+[2024-03-29T13:11:24.917Z] [INFO] - Vote granted for Node 1 in term 21.

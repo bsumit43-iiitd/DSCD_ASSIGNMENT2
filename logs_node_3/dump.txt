@@ -303,3 +303,31 @@
 [2024-03-26T17:14:32.229Z] [INFO] - Node 3 (follower) committed the entry SET c 324 to the state machine.
 [2024-03-26T17:15:28.287Z] [INFO] - Vote granted for Node 1 in term 4.
 [2024-03-26T17:15:29.271Z] [INFO] - Node 3 accepted AppendEntries RPC from 1.
+[2024-03-29T11:40:21.237Z] [INFO] - Vote granted for Node 1 in term 8.
+[2024-03-29T11:43:00.546Z] [INFO] - Vote granted for Node 2 in term 10.
+[2024-03-29T11:43:00.583Z] [INFO] - Node 3 rejected AppendEntries RPC from 2.
+[2024-03-29T11:47:38.359Z] [ERROR] - Vote denied for Node 1 in term 10.
+[2024-03-29T11:47:45.360Z] [INFO] - Node 3 election timer timed out, Starting election.
+[2024-03-29T11:47:52.382Z] [INFO] - Vote granted for Node 1 in term 12.
+[2024-03-29T11:47:52.420Z] [INFO] - Node 3 rejected AppendEntries RPC from 1.
+[2024-03-29T11:47:52.419Z] [INFO] - Node 3 rejected AppendEntries RPC from 1.
+[2024-03-29T11:57:37.446Z] [INFO] - Vote granted for Node 2 in term 13.
+[2024-03-29T11:57:37.480Z] [INFO] - Node 3 rejected AppendEntries RPC from 2.
+[2024-03-29T12:00:43.219Z] [INFO] - Vote granted for Node 1 in term 14.
+[2024-03-29T12:00:43.259Z] [INFO] - Node 3 rejected AppendEntries RPC from 1.
+[2024-03-29T12:01:35.654Z] [INFO] - Node 3 election timer timed out, Starting election.
+[2024-03-29T12:01:35.661Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T12:01:35.668Z] [ERROR] - Vote denied for Node 2 in term 15.
+[2024-03-29T12:01:44.670Z] [INFO] - Node 3 election timer timed out, Starting election.
+[2024-03-29T12:01:44.673Z] [ERROR] - Vote denied for Node 2 in term 16.
+[2024-03-29T12:01:44.675Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T12:01:53.686Z] [INFO] - Node 3 election timer timed out, Starting election.
+[2024-03-29T12:01:53.688Z] [ERROR] - Error occurred while sending RPC to Node 1.
+[2024-03-29T12:01:53.691Z] [ERROR] - Vote denied for Node 2 in term 17.
+[2024-03-29T12:02:45.325Z] [INFO] - Node 3 election timer timed out, Starting election.
+[2024-03-29T12:02:54.371Z] [INFO] - Vote granted for Node 1 in term 19.
+[2024-03-29T12:02:54.407Z] [INFO] - Node 3 rejected AppendEntries RPC from 1.
+[2024-03-29T12:02:54.563Z] [INFO] - Node 3 rejected AppendEntries RPC from 1.
+[2024-03-29T13:11:15.896Z] [INFO] - Node 3 election timer timed out, Starting election.
+[2024-03-29T13:11:15.913Z] [ERROR] - Vote denied for Node 2 in term 20.
+[2024-03-29T13:11:24.917Z] [INFO] - Vote granted for Node 1 in term 21.
