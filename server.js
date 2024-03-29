@@ -238,12 +238,12 @@ const request_message = async (type = "heartbeat", log = []) => {
                     prevLogTerm
                   );
                   return;
-<<<<<<< HEAD
+
                 }
                   if(req?.split(" ")?.[0] == "NO-OP") {
-=======
+
                 } else if (req?.split(" ")?.[0] == "NO_OP") {
->>>>>>> 3ef477f703a3df1b6dc4f35d61eda1f0226615f7
+
                   commit_index = parseInt(commit_index) + 1;
                   logToFile(
                     "info",
