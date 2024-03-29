@@ -1,6 +1,6 @@
 const path = require("path");
 const grpc = require("@grpc/grpc-js");
-const logToFile = require("./logging");
+const { logToFile, removeFileContent } = require("./logging");
 const protoLoader = require("@grpc/proto-loader");
 const retrieveNodeId = require("./clusterInfo");
 const { readmetadataFile, readlogFile } = require("./readLogs");
@@ -55,6 +55,14 @@ readmetadataFile().then((res) => {
 
 readlogFile().then((res) => {
   log = res;
+  log.forEach((l) => {
+    console.log("log", l);
+    let ins = l?.msg?.split(" ");
+    if (ins[0] == "SET") {
+      data[ins[1]] == ins[2];
+    }
+    console.log("Data loaded ", data);
+  });
 });
 
 const log_fix = (
@@ -230,8 +238,12 @@ const request_message = async (type = "heartbeat", log = []) => {
                     prevLogTerm
                   );
                   return;
+<<<<<<< HEAD
                 }
                   if(req?.split(" ")?.[0] == "NO-OP") {
+=======
+                } else if (req?.split(" ")?.[0] == "NO_OP") {
+>>>>>>> 3ef477f703a3df1b6dc4f35d61eda1f0226615f7
                   commit_index = parseInt(commit_index) + 1;
                   logToFile(
                     "info",
@@ -327,8 +339,8 @@ const vote = () => {
             votes_received[current_term]?.length + 1 >
               Math.ceil((Object.keys(clusterConnectionStrings)?.length + 1) / 2)
           ) {
-            console.log("SDSSSdfsssssssssssssssssssssssssssssssssssssssss")
-            console.log(maxLeaseTimeout)
+            console.log("SDSSSdfsssssssssssssssssssssssssssssssssssssssss");
+            console.log(maxLeaseTimeout);
             resetLeaseTimeout(maxLeaseTimeout, acquireLease);
             // resetHeartbeat(1000); //will not do in case of leaderlease
             console.log("I am a leader");
@@ -383,13 +395,17 @@ const releaseLease = () => {
 };
 
 const acquireLease = () => {
+<<<<<<< HEAD
+=======
+  console.log("dfsssssssssssssssssssssssssssssssssssssssss");
+>>>>>>> 3ef477f703a3df1b6dc4f35d61eda1f0226615f7
   resetHeartbeat(1000);
   maxLeaseTimeout = 0;
   leaseAcquired = true;
   resetLeaseTimeout(10000, releaseLease);
   // Add NO_OP here
-  log.push({ term: current_term, msg: "NO-OP" });
-  logToFile("info", `NO-OP ${current_term}`, "logs.txt");
+  log.push({ term: current_term, msg: "NO_OP" });
+  logToFile("info", `NO_OP ${current_term}`, "logs.txt");
   request_message("no_op", log);
 };
 
@@ -648,6 +664,18 @@ server.addService(grpcObj.RaftService.service, {
             `Commit_length: ${commit_index}, Term: ${current_term}, NodeId: ${nodeId} `,
             "metadata.txt"
           );
+
+          removeFileContent("logs.txt")
+            .then((message) => {
+              log.forEach((l) => {
+                logToFile("info", `${l.msg} ${l.term}`, "logs.txt");
+              });
+
+              console.log(message);
+            })
+            .catch((error) => {
+              console.error("Error occurred on logfix clear:", error);
+            });
           callback(null, { term: current_term, success: true, nodeId: nodeId });
         } else {
           callback(null, {
