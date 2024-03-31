@@ -1,333 +1,385 @@
-[2024-03-26T17:11:23.442Z] [INFO] - Vote granted for Node 1 in term 1.
-[2024-03-26T17:11:23.451Z] [INFO] - Node 3 accepted AppendEntries RPC from 1.
-[2024-03-26T17:11:28.748Z] [INFO] - Node 3 accepted AppendEntries RPC from 1.
-[2024-03-26T17:11:28.748Z] [INFO] - Node 3 accepted AppendEntries RPC from 1.
-[2024-03-26T17:11:28.749Z] [INFO] - Node 3 accepted AppendEntries RPC from 1.
-[2024-03-26T17:11:28.751Z] [INFO] - Node 3 (follower) committed the entry SET a 5 to the state machine.
-[2024-03-26T17:11:28.752Z] [INFO] - Node 3 (follower) committed the entry SET b df to the state machine.
-[2024-03-26T17:11:28.752Z] [INFO] - Node 3 (follower) committed the entry SET c 324 to the state machine.
-[2024-03-26T17:11:57.777Z] [INFO] - Node 3 election timer timed out, Starting election.
-[2024-03-26T17:11:57.781Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:11:57.781Z] [INFO] - Node 3 became the leader for term 2.
-[2024-03-26T17:11:57.783Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:11:58.782Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:11:58.783Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:11:59.781Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:11:59.783Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:00.782Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:00.783Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:01.783Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:01.784Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:02.785Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:02.786Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:03.786Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:03.787Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:04.787Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:04.788Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:05.787Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:05.789Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:06.789Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:06.789Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:07.789Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:07.790Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:08.789Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:08.790Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:09.791Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:09.792Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:10.793Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:10.794Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:11.793Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:11.794Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:12.794Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:12.794Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:13.794Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:13.795Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:14.795Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:14.796Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:15.796Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:15.797Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:16.797Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:16.798Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:17.797Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:17.798Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:18.796Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:18.797Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:19.797Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:19.798Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:20.798Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:20.799Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:21.799Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:21.800Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:22.800Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:22.801Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:23.802Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:23.803Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:24.803Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:24.803Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:25.803Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:25.804Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:26.805Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:26.806Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:27.805Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:27.806Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:28.806Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:28.807Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:29.807Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:29.807Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:30.807Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:30.808Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:31.809Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:31.810Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:32.810Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:32.810Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:33.810Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:33.811Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:34.811Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:34.812Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:35.813Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:35.814Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:36.814Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:36.814Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:37.813Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:37.814Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:38.813Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:38.814Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:39.814Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:39.815Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:40.815Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:40.816Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:41.816Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:41.817Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:42.818Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:42.819Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:43.818Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:43.819Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:44.819Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:44.820Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:45.821Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:45.822Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:46.822Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:46.823Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:47.822Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:47.822Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:48.822Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:48.822Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:49.822Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:49.823Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:50.823Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:50.823Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:51.823Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:51.824Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:52.825Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:52.826Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:53.826Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:53.826Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:54.826Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:54.827Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:55.827Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:55.828Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:56.828Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:56.829Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:57.829Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:57.829Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:58.828Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:58.829Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:12:59.829Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:12:59.830Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:00.831Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:00.832Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:01.833Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:01.834Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:02.835Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:02.836Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:03.837Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:03.838Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:04.838Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:04.839Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:05.839Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:05.840Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:06.839Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:06.840Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:07.840Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:07.841Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:08.841Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:08.841Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:09.842Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:09.842Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:10.842Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:10.843Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:11.843Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:11.844Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:12.845Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:12.846Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:13.846Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:13.847Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:14.847Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:14.848Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:15.848Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:15.849Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:16.849Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:16.849Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:17.849Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:17.849Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:18.849Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:18.849Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:19.850Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:19.850Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:20.850Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:20.851Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:21.851Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:21.852Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:22.853Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:22.854Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:23.855Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:23.855Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:24.855Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:24.856Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:25.856Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:25.857Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:26.858Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:26.858Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:27.857Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:27.858Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:28.858Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:28.859Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:29.859Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:29.860Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:30.860Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:30.861Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:31.861Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:31.862Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:32.863Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:32.864Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:33.863Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:33.864Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:34.865Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:34.865Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:35.866Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:35.866Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:36.866Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:36.867Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:37.866Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:37.867Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:38.866Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:38.867Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:39.867Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:39.868Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:40.869Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:40.870Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:41.869Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:41.870Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:42.870Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:42.871Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:43.871Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:43.871Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:44.871Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:44.872Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:45.873Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:45.873Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:46.873Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:46.874Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:47.874Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:47.875Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:48.875Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:48.876Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:49.875Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:49.876Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:50.876Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:50.877Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:51.877Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:51.877Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:52.877Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:52.878Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:53.879Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:53.880Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:54.879Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:54.880Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:55.881Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:55.882Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:56.883Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:56.884Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:57.883Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:57.884Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:58.883Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:58.885Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:13:59.885Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:13:59.886Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:14:00.886Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:00.887Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:14:01.887Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:01.888Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:14:02.889Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:02.890Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:14:03.891Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:03.892Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:14:04.891Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:04.892Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:14:05.893Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:05.894Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:14:06.894Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:06.894Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:14:07.893Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:07.894Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:14:08.893Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:08.894Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:14:09.895Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:09.896Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:14:10.897Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:10.897Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:14:11.897Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:11.898Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:14:12.899Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:12.900Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:14:13.901Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:13.902Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:14:14.901Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:14.902Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:14:15.902Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:15.904Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:14:16.903Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:16.904Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:14:17.904Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:17.905Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:14:18.905Z] [INFO] - Leader 2 sending heartbeat & Renewing Lease
-[2024-03-26T17:14:18.906Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-26T17:14:18.906Z] [ERROR] - Error occurred while sending RPC to Node 2.
-[2024-03-26T17:14:28.034Z] [INFO] - Vote granted for Node 2 in term 3.
-[2024-03-26T17:14:28.039Z] [INFO] - Node 3 accepted AppendEntries RPC from 2.
-[2024-03-26T17:14:32.218Z] [INFO] - Node 3 accepted AppendEntries RPC from 2.
-[2024-03-26T17:14:32.219Z] [INFO] - Node 3 accepted AppendEntries RPC from 2.
-[2024-03-26T17:14:32.221Z] [INFO] - Node 3 (follower) committed the entry SET a 5 to the state machine.
-[2024-03-26T17:14:32.221Z] [INFO] - Node 3 (follower) committed the entry SET b df to the state machine.
-[2024-03-26T17:14:32.228Z] [INFO] - Node 3 accepted AppendEntries RPC from 2.
-[2024-03-26T17:14:32.229Z] [INFO] - Node 3 (follower) committed the entry SET c 324 to the state machine.
-[2024-03-26T17:15:28.287Z] [INFO] - Vote granted for Node 1 in term 4.
-[2024-03-26T17:15:29.271Z] [INFO] - Node 3 accepted AppendEntries RPC from 1.
-[2024-03-29T11:40:21.237Z] [INFO] - Vote granted for Node 1 in term 8.
-[2024-03-29T11:43:00.546Z] [INFO] - Vote granted for Node 2 in term 10.
-[2024-03-29T11:43:00.583Z] [INFO] - Node 3 rejected AppendEntries RPC from 2.
-[2024-03-29T11:47:38.359Z] [ERROR] - Vote denied for Node 1 in term 10.
-[2024-03-29T11:47:45.360Z] [INFO] - Node 3 election timer timed out, Starting election.
-[2024-03-29T11:47:52.382Z] [INFO] - Vote granted for Node 1 in term 12.
-[2024-03-29T11:47:52.420Z] [INFO] - Node 3 rejected AppendEntries RPC from 1.
-[2024-03-29T11:47:52.419Z] [INFO] - Node 3 rejected AppendEntries RPC from 1.
-[2024-03-29T11:57:37.446Z] [INFO] - Vote granted for Node 2 in term 13.
-[2024-03-29T11:57:37.480Z] [INFO] - Node 3 rejected AppendEntries RPC from 2.
-[2024-03-29T12:00:43.219Z] [INFO] - Vote granted for Node 1 in term 14.
-[2024-03-29T12:00:43.259Z] [INFO] - Node 3 rejected AppendEntries RPC from 1.
-[2024-03-29T12:01:35.654Z] [INFO] - Node 3 election timer timed out, Starting election.
-[2024-03-29T12:01:35.661Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-29T12:01:35.668Z] [ERROR] - Vote denied for Node 2 in term 15.
-[2024-03-29T12:01:44.670Z] [INFO] - Node 3 election timer timed out, Starting election.
-[2024-03-29T12:01:44.673Z] [ERROR] - Vote denied for Node 2 in term 16.
-[2024-03-29T12:01:44.675Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-29T12:01:53.686Z] [INFO] - Node 3 election timer timed out, Starting election.
-[2024-03-29T12:01:53.688Z] [ERROR] - Error occurred while sending RPC to Node 1.
-[2024-03-29T12:01:53.691Z] [ERROR] - Vote denied for Node 2 in term 17.
-[2024-03-29T12:02:45.325Z] [INFO] - Node 3 election timer timed out, Starting election.
-[2024-03-29T12:02:54.371Z] [INFO] - Vote granted for Node 1 in term 19.
-[2024-03-29T12:02:54.407Z] [INFO] - Node 3 rejected AppendEntries RPC from 1.
-[2024-03-29T12:02:54.563Z] [INFO] - Node 3 rejected AppendEntries RPC from 1.
-[2024-03-29T13:11:15.896Z] [INFO] - Node 3 election timer timed out, Starting election.
-[2024-03-29T13:11:15.913Z] [ERROR] - Vote denied for Node 2 in term 20.
-[2024-03-29T13:11:24.917Z] [INFO] - Vote granted for Node 1 in term 21.
+[2024-03-31T08:57:39.945Z] [INFO] - Vote granted for Node 1 in term 1.
+[2024-03-31T08:57:39.985Z] [INFO] - Node 3 accepted AppendEntries RPC from 1.
+[2024-03-31T09:01:53.877Z] [INFO] - Vote granted for Node 2 in term 2.
+[2024-03-31T09:01:53.909Z] [INFO] - Node 3 accepted AppendEntries RPC from 2.
+[2024-03-31T09:02:25.372Z] [INFO] - Node 3 accepted AppendEntries RPC from 2.
+[2024-03-31T09:05:14.587Z] [INFO] - Vote granted for Node 2 in term 3.
+[2024-03-31T09:05:14.621Z] [INFO] - Node 3 accepted AppendEntries RPC from 2.
+[2024-03-31T09:05:24.517Z] [INFO] - Node 3 rejected AppendEntries RPC from 2.
+[2024-03-31T09:08:46.233Z] [INFO] - Node 3 rejected AppendEntries RPC from 2.
+[2024-03-31T09:15:39.972Z] [INFO] - Node 3 election timer timed out, Starting election.
+[2024-03-31T09:15:39.996Z] [INFO] - Node 3 became the leader for term 4.
+[2024-03-31T09:15:41.005Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:15:42.011Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:15:43.012Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:15:44.020Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:15:45.032Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:15:46.034Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:15:47.046Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:15:48.056Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:15:49.059Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:15:50.072Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:15:51.083Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:15:52.097Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:15:53.114Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:15:54.117Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:15:55.129Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:15:55.496Z] [INFO] - Node 3 (leader) received an SET x 5 request.
+[2024-03-31T09:15:56.507Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:15:57.512Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:15:58.522Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:15:59.268Z] [INFO] - Node 3 (leader) received an SET x 5 request.
+[2024-03-31T09:16:00.268Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:01.282Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:02.293Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:03.307Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:04.320Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:05.323Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:06.335Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:07.346Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:08.360Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:09.372Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:10.389Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:11.396Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:12.411Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:13.424Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:14.436Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:15.436Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:16.437Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:17.452Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:18.466Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:19.467Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:20.469Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:21.486Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:22.487Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:23.488Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:24.504Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:25.517Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:26.532Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:27.545Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:28.556Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:29.568Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:30.580Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:31.591Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:32.595Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:33.607Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:34.622Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:35.638Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:36.652Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:37.666Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:38.681Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:39.695Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:40.709Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:41.724Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:42.725Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:43.726Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:44.729Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:45.743Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:46.748Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:47.750Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:48.750Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:49.764Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:50.779Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:51.791Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:52.792Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:53.793Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:54.796Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:55.809Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:56.819Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:57.830Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:58.841Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:16:59.846Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:17:00.856Z] [INFO] - Leader 4 sending heartbeat & Renewing Lease
+[2024-03-31T09:17:50.280Z] [ERROR] - Vote denied for Node 1 in term 5.
+[2024-03-31T09:17:56.305Z] [ERROR] - Vote denied for Node 2 in term 6.
+[2024-03-31T09:17:56.336Z] [INFO] - Node 3 rejected AppendEntries RPC from 2.
+[2024-03-31T09:17:59.663Z] [INFO] - Node 3 rejected AppendEntries RPC from 2.
+[2024-03-31T09:18:05.161Z] [INFO] - Node 3 rejected AppendEntries RPC from 2.
+[2024-03-31T11:12:21.611Z] [INFO] - Node 3 election timer timed out, Starting election.
+[2024-03-31T11:12:21.629Z] [ERROR] - Vote denied for Node 1 in term 7.
+[2024-03-31T11:12:27.668Z] [INFO] - Vote granted for Node 2 in term 8.
+[2024-03-31T11:17:35.277Z] [ERROR] - Vote denied for Node 1 in term 9.
+[2024-03-31T11:17:42.282Z] [INFO] - Node 3 election timer timed out, Starting election.
+[2024-03-31T11:17:42.301Z] [INFO] - Node 3 became the leader for term 10.
+[2024-03-31T11:17:43.312Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:17:44.313Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:17:45.326Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:17:46.338Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:17:47.351Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:17:48.365Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:17:49.377Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:17:50.379Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:17:51.381Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:17:52.386Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:17:53.400Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:17:54.412Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:17:55.426Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:17:56.436Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:17:57.451Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:17:58.453Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:17:59.454Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:00.455Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:01.467Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:02.482Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:03.484Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:04.486Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:05.271Z] [INFO] - Node 3 (leader) received an SET x 4 request.
+[2024-03-31T11:18:06.285Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:07.289Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:08.302Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:09.303Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:10.317Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:10.465Z] [INFO] - Node 3 (leader) received an SET x 4 request.
+[2024-03-31T11:18:11.477Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:12.479Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:13.482Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:14.483Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:15.496Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:16.511Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:17.513Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:18.525Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:19.536Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:20.547Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:21.547Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:22.554Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:23.554Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:24.556Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:25.568Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:26.583Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:27.593Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:28.596Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:29.606Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:30.621Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:31.624Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:32.632Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:33.644Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:34.657Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:35.667Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:36.680Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:37.694Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:38.698Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:39.708Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:40.721Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:41.721Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:42.726Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:43.741Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:44.755Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:45.769Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:46.784Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:47.784Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:48.798Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:49.813Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:50.826Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:51.840Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:52.855Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:53.867Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:54.881Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:55.894Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:56.894Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:57.905Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:58.918Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:18:59.921Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:00.926Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:01.925Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:02.939Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:03.950Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:04.959Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:05.973Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:06.986Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:07.999Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:09.010Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:10.024Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:11.032Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:12.033Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:13.034Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:14.048Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:15.048Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:16.061Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:17.075Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:18.077Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:19.084Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:20.089Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:21.089Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:22.099Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:23.114Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:24.116Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:25.127Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:26.143Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:27.143Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:28.158Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:29.171Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:30.183Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:31.198Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:32.207Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:33.213Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:34.226Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:35.239Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:36.250Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:37.261Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:38.261Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:39.277Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:40.286Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:41.292Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:42.306Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:43.319Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:44.334Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:45.336Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:46.337Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:47.352Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:48.365Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:49.379Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:50.392Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:51.392Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:52.406Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:53.419Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:54.420Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:55.428Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:56.439Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:57.454Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:58.466Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:19:59.479Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:00.487Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:01.488Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:02.498Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:03.511Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:04.523Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:05.537Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:06.549Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:07.563Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:08.577Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:09.585Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:10.599Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:11.612Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:12.626Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:13.634Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:14.635Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:15.648Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:16.660Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:17.673Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:18.672Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:19.686Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:20.701Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:21.710Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:22.716Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:23.731Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:24.741Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:25.741Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:26.744Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:27.759Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:28.771Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:29.782Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:30.783Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:31.783Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:32.797Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:33.808Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:34.823Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:35.828Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:36.829Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:37.840Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:38.851Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:39.864Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:40.876Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:41.888Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:42.897Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:43.911Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:44.924Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:45.925Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:46.925Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:47.926Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:48.937Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:49.946Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:50.960Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:51.972Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:52.985Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:53.999Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:55.010Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:56.010Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:57.022Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:58.036Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:20:59.051Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:00.051Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:01.065Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:02.081Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:03.095Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:04.107Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:05.118Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:06.123Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:07.136Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:08.144Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:09.154Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:10.166Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:11.166Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:12.178Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:13.192Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:14.205Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:15.205Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:16.205Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:17.216Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:18.230Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:19.231Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:20.245Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:21.246Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:22.260Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:23.275Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:24.278Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:25.282Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:26.297Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:27.308Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:28.323Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:29.326Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:30.327Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:31.330Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:32.343Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:33.342Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:34.357Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:35.371Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:36.373Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:37.374Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:38.374Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:39.389Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:40.403Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:41.416Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:42.423Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:43.434Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:44.436Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:45.451Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:46.451Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:47.466Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:48.481Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:49.494Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:50.494Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:51.495Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:52.496Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:53.510Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:54.516Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:55.531Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:56.544Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:57.558Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:58.567Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:21:59.570Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:22:00.580Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:22:01.585Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:22:02.587Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:22:03.601Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:22:04.614Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:22:05.627Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:22:06.629Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:22:07.629Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:22:08.644Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:22:09.649Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:22:10.650Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:22:11.666Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:22:12.666Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:22:13.677Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:22:14.690Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:22:15.703Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:22:16.713Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:22:17.726Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:22:18.727Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:22:19.740Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:22:20.754Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:22:21.769Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:22:22.782Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:22:23.794Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:22:24.795Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease
+[2024-03-31T11:22:25.807Z] [INFO] - Leader 10 sending heartbeat & Renewing Lease

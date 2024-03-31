@@ -4,6 +4,7 @@ const { logToFile, removeFileContent } = require("./logging");
 const protoLoader = require("@grpc/proto-loader");
 const retrieveNodeId = require("./clusterInfo");
 const { readmetadataFile, readlogFile } = require("./readLogs");
+const { Console } = require("console");
 const uuidv4 = require("uuid").v4;
 const portIndex = process.argv.indexOf("--port");
 
@@ -159,7 +160,7 @@ const request_message = async (type = "heartbeat", log = []) => {
             ? []
             : type == "no_op"
             ? log.slice(-1)
-            : log.slice(-1), // This will get changed
+            : log.slice(commit_index+1,prevLogIndex), // This will get changed
         leaderCommit: temp_commit_index,
         type: type
       },
@@ -212,6 +213,8 @@ const request_message = async (type = "heartbeat", log = []) => {
                     req = log[i].msg;
                     if (temp_commit_index == commit_index && req?.split(" ")?.[0] == "SET") {
                         data[req?.split(" ")?.[1]] = req?.split(" ")?.[2];
+                        console.log("Hi I am data");
+                        console.log(data);
                         commit_index = Math.max(commit_index , i);
                         temp_commit_index = commit_index;
                       
@@ -394,11 +397,6 @@ const releaseLease = () => {
 };
 
 const acquireLease = () => {
-<<<<<<< HEAD
-
-=======
-  console.log("dfsssssssssssssssssssssssssssssssssssssssss");
->>>>>>> 4521460a9a9f18181f1613da035ef64c0623ceae
   resetHeartbeat(1000);
   maxLeaseTimeout = 0;
   leaseAcquired = true;
@@ -522,6 +520,7 @@ server.addService(grpcObj.RaftService.service, {
             let count = 0;
             for (let temp = leaderCommit + 1; temp <= prevLogIndex+1; temp++) {
                 if(count < len){
+                  console.log(count,temp)
                   if(log?.[temp]?.msg != entries[count].msg){
                     log[temp] = {term: entries[count].term, msg: entries[count].msg};
                     logToFile(
@@ -583,6 +582,7 @@ server.addService(grpcObj.RaftService.service, {
             let count = 0;
             for (let temp = leaderCommit + 1; temp <= prevLogIndex+1; temp++) {
                 if(count < len){
+                  console.log(count,temp);
                   if(log?.[temp]?.msg != entries[count].msg){
                     log[temp] = {term: entries[count].term, msg: entries[count].msg};
                     logToFile(
@@ -642,6 +642,8 @@ server.addService(grpcObj.RaftService.service, {
       let req = log[prevLogIndex + 1]?.msg;
       if (req?.split(" ")?.[0] == "SET") {
         data[req?.split(" ")?.[1]] = req?.split(" ")?.[2];
+        console.log("Hi I am data");
+        console.log(data);
         commit_index = Math.min(leaderCommit, log.length - 1);
         logToFile(
           "info",
