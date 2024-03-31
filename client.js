@@ -88,7 +88,7 @@ async function requestServer(operation, key, value = "", count = 0) {
             if (response?.leaderId) {
               // retrieveIpPort(lId);
               requestServer(operation, key, value);
-              promptUser();
+              return true;
             } else {
               lId = Object.keys(clusterInfo)?.sample();
               retrieveIpPort(lId);
@@ -98,7 +98,9 @@ async function requestServer(operation, key, value = "", count = 0) {
             console.log(response?.data);
           }
         }
+        promptUser();
       }
+     
     );
   } catch (err) {
     // console.log(err);
