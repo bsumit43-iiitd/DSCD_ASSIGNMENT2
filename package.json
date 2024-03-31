@@ -20,6 +20,7 @@
   "homepage": "https://github.com/bsumit43-iiitd/DSCD_ASSIGNMENT2#readme",
   "dependencies": {
     "@grpc/grpc-js": "^1.10.2",
+    "i": "^0.3.7",
     "uuid": "^9.0.1"
   }
 }

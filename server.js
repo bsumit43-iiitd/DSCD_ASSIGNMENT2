@@ -238,12 +238,12 @@ const request_message = async (type = "heartbeat", log = []) => {
                     prevLogTerm
                   );
                   return;
-<<<<<<< HEAD
+
                 }
                   if(req?.split(" ")?.[0] == "NO-OP") {
-=======
+
                 } else if (req?.split(" ")?.[0] == "NO_OP") {
->>>>>>> 3ef477f703a3df1b6dc4f35d61eda1f0226615f7
+
                   commit_index = parseInt(commit_index) + 1;
                   logToFile(
                     "info",
@@ -339,7 +339,6 @@ const vote = () => {
             votes_received[current_term]?.length + 1 >
               Math.ceil((Object.keys(clusterConnectionStrings)?.length + 1) / 2)
           ) {
-            console.log("SDSSSdfsssssssssssssssssssssssssssssssssssssssss");
             console.log(maxLeaseTimeout);
             resetLeaseTimeout(maxLeaseTimeout, acquireLease);
             // resetHeartbeat(1000); //will not do in case of leaderlease
@@ -395,10 +394,7 @@ const releaseLease = () => {
 };
 
 const acquireLease = () => {
-<<<<<<< HEAD
-=======
-  console.log("dfsssssssssssssssssssssssssssssssssssssssss");
->>>>>>> 3ef477f703a3df1b6dc4f35d61eda1f0226615f7
+
   resetHeartbeat(1000);
   maxLeaseTimeout = 0;
   leaseAcquired = true;
@@ -522,19 +518,26 @@ server.addService(grpcObj.RaftService.service, {
             let count = 0;
             for (let temp = leaderCommit + 1; temp <= prevLogIndex+1; temp++) {
                 if(count < len){
+                  if(log?.[temp]?.msg != entries[count].msg){
                     log[temp] = {term: entries[count].term, msg: entries[count].msg};
+                    logToFile(
+                      "info",
+                      `${entries[count]?.msg} ${entries[count].term}`,
+                      "logs.txt"
+                    );
+                  }
+                  else
+                  {
+                    continue;
+                  }  
                 }
                 count++;
-            }
-            //log.push({
-              //term: leaderTerm,
-              //msg: entries[entries.length - 1]?.msg
-            //});
-            logToFile(
-              "info",
-              `${entries[entries.length - 1]?.msg} ${leaderTerm}`,
-              "logs.txt"
-            );
+            };
+           // logToFile(
+             // "info",
+             // `${entries[entries.length - 1]?.msg} ${leaderTerm}`,
+            //  "logs.txt"
+            //);
             logToFile(
               "info",
               `Node ${nodeId} accepted AppendEntries RPC from ${leaderId}.`,
@@ -576,23 +579,26 @@ server.addService(grpcObj.RaftService.service, {
             let count = 0;
             for (let temp = leaderCommit + 1; temp <= prevLogIndex+1; temp++) {
                 if(count < len){
+                  if(log?.[temp]?.msg != entries[count].msg){
                     log[temp] = {term: entries[count].term, msg: entries[count].msg};
+                    logToFile(
+                      "info",
+                      `${entries[count]?.msg} ${entries[count].term}`,
+                      "logs.txt"
+                    );
+                  }
+                  else
+                  {
+                    continue;
+                  }  
                 }
                 count++;
             }
-            //log.push({
-              //term: leaderTerm,
-              //msg: entries[entries.length - 1]?.msg
-            //});
-           // log.push({
-           //   term: leaderTerm,
-            //  msg: entries[entries.length - 1]?.msg
-            //});
-            logToFile(
-              "info",
-              `${entries[entries.length - 1]?.msg} ${leaderTerm}`,
-              "logs.txt"
-            );
+            // logToFile(
+            //   "info",
+            //   `${entries[entries.length - 1]?.msg} ${leaderTerm}`,
+            //   "logs.txt"
+            // );
             logToFile(
               "info",
               `Node ${nodeId} accepted AppendEntries RPC from ${leaderId}.`,

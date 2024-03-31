@@ -929,3 +929,6 @@
 [2024-03-29T13:12:40.610Z] [INFO] - Leader 21 sending heartbeat & Renewing Lease
 [2024-03-29T13:12:41.618Z] [INFO] - Leader 21 sending heartbeat & Renewing Lease
 [2024-03-29T13:12:42.628Z] [INFO] - Leader 21 sending heartbeat & Renewing Lease
+[2024-03-31T08:35:49.304Z] [INFO] - Node 1 election timer timed out, Starting election.
+[2024-03-31T08:35:57.254Z] [ERROR] - Vote denied for Node 2 in term 22.
+[2024-03-31T08:35:57.280Z] [INFO] - Node 1 rejected AppendEntries RPC from 2.
