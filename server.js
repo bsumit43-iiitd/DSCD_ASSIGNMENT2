@@ -394,7 +394,11 @@ const releaseLease = () => {
 };
 
 const acquireLease = () => {
+<<<<<<< HEAD
 
+=======
+  console.log("dfsssssssssssssssssssssssssssssssssssssssss");
+>>>>>>> 4521460a9a9f18181f1613da035ef64c0623ceae
   resetHeartbeat(1000);
   maxLeaseTimeout = 0;
   leaseAcquired = true;
