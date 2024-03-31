@@ -1,5 +1,0 @@
-[2024-03-31T14:20:12.712Z] [INFO] - Vote granted for Node 2 in term 1.
-[2024-03-31T14:20:12.743Z] [INFO] - Node 3 accepted AppendEntries RPC from 2.
-[2024-03-31T14:20:18.597Z] [INFO] - Node 3 accepted AppendEntries RPC from 2.
-[2024-03-31T14:20:18.614Z] [INFO] - Node 3 (follower) committed the entry SET f 7 to the state machine.
-[2024-03-31T14:20:48.508Z] [INFO] - Node 3 rejected AppendEntries RPC from 2.

@@ -837,7 +837,7 @@ server.bindAsync(
 
 peers.forEach((peer) => {
   const client = new grpcObj.RaftService(
-    `0.0.0.0:${peer}`,
+    `${peer}`,
     grpc.credentials.createInsecure()
   );
   clusterConnectionStrings[peer] = client;

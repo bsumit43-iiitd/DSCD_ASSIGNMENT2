@@ -1,2 +1,0 @@
-[2024-03-31T14:20:12.698Z] [INFO] - Commit_length: -1, Term: 1, NodeId: 2 
-[2024-03-31T14:20:18.605Z] [INFO] - Commit_length: 0, Term: 1, NodeId: 2 
