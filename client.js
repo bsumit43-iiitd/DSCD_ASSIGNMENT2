@@ -95,10 +95,10 @@ async function requestServer(operation, key, value = "", count = 0) {
               requestServer(operation, key, value);
             }
           } else {
+            promptUser();
             console.log(response?.data);
           }
         }
-        promptUser();
       }
      
     );

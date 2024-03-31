@@ -79,7 +79,7 @@ const log_fix = (
       leaderId: nodeId,
       prevLogIndex: prevLogIndex,
       prevLogTerm: prevLogTerm,
-      entries: log.slice(commit_index+1,prevLogIndex),
+      entries: log.slice(commit_index+1, prevLogIndex+2),
       leaderCommit: commit_index,
       type: "log_fix"
     },
@@ -160,7 +160,7 @@ const request_message = async (type = "heartbeat", log = []) => {
             ? []
             : type == "no_op"
             ? log.slice(-1)
-            : log.slice(commit_index+1,prevLogIndex), // This will get changed
+            : log.slice(commit_index+1,prevLogIndex+2), // This will get changed
         leaderCommit: temp_commit_index,
         type: type
       },
@@ -208,20 +208,15 @@ const request_message = async (type = "heartbeat", log = []) => {
                 )
               ) {
                 let req;
-                for(let i = commit_index + 1; i < log.length; i++)
+                for(let i = commit_index + 1; i < log.length-1; i++)
                 {
                     req = log[i].msg;
                     if (temp_commit_index == commit_index && req?.split(" ")?.[0] == "SET") {
                         data[req?.split(" ")?.[1]] = req?.split(" ")?.[2];
-                        console.log("Hi I am data");
-                        console.log(data);
+                        // console.log("Hi I am data");
+                        // console.log(data);
                         commit_index = Math.max(commit_index , i);
                         temp_commit_index = commit_index;
-                      
-                // if (temp_commit_index == commit_index && req?.split(" ")?.[0] == "SET"
-                // ) {
-                //   data[req?.split(" ")?.[1]] = req?.split(" ")?.[2];
-                //   commit_index = parseInt(commit_index) + 1;
                   logToFile(
                     "info",
                     `Commit_length: ${commit_index}, Term: ${current_term}, NodeId: ${nodeId} `,
@@ -234,6 +229,25 @@ const request_message = async (type = "heartbeat", log = []) => {
                     "dump.txt"
                   );
                   }
+                  req = log[log.length-1]?.msg;
+                  data[req?.split(" ")?.[1]] = req?.split(" ")?.[2];
+                  // console.log("DATA");
+                  console.log(data);
+                  commit_index = Math.max(commit_index , i);
+                  console.log("commit_index");
+                  console.log(commit_index);
+                  temp_commit_index = commit_index;
+                  logToFile(
+                    "info",
+                    `Commit_length: ${commit_index}, Term: ${current_term}, NodeId: ${nodeId} `,
+                    "metadata.txt"
+                  );
+                  console.log("Leader", commit_index);
+                  logToFile(
+                    "info",
+                    `Node ${nodeId} (leader) committed the entry ${req} to the state machine.`,
+                    "dump.txt"
+                  );
                   req_ack(
                     temp_current_term,
                     commit_index,
@@ -449,8 +463,8 @@ server.addService(grpcObj.RaftService.service, {
         `Node ${nodeId} (leader) received an ${tmp} request.`,
         "dump.txt"
       );
+      console.log(op);
       if (op == "GET") {
-        console.log(data);
         callback(null, {
           data: `Value retrieved for ${key}. Value : ${data?.[key]}`,
           success: true
@@ -505,6 +519,8 @@ server.addService(grpcObj.RaftService.service, {
         callback(null, { term: current_term, success: false, nodeId: nodeId });
       }
     } else if (type == "request_msg" || type == "no_op") {
+      // console.log("term");
+      // console.log(leaderTerm,current_term);
       if (leaderTerm < current_term) {
         logToFile(
           "info",
@@ -514,14 +530,17 @@ server.addService(grpcObj.RaftService.service, {
         callback(null, { term: current_term, success: false, nodeId: nodeId });
       } else if (leaderTerm > current_term) {
         leaderTerm == current_term;
+        // console.log("gfjfkf");
+        // console.log(prevLogIndex,prevLogTerm,log[log.length-1],log.length-1);
         if (prevLogTerm == -1 || log[log.length - 1]?.term == prevLogTerm) {
           if (prevLogIndex == -1 || log.length - 1 == prevLogIndex) {
             let len = entries.length;
             let count = 0;
-            for (let temp = leaderCommit + 1; temp <= prevLogIndex+1; temp++) {
+            for (let temp = leaderCommit + 1; temp <= prevLogIndex; temp++) {
                 if(count < len){
-                  console.log(count,temp)
-                  if(log?.[temp]?.msg != entries[count].msg){
+                  // console.log("hwhfw");
+                  // console.log(count,temp);
+                  if(log?.[temp]?.msg != entries[count]?.msg){
                     log[temp] = {term: entries[count].term, msg: entries[count].msg};
                     logToFile(
                       "info",
@@ -531,16 +550,20 @@ server.addService(grpcObj.RaftService.service, {
                   }
                   else
                   {
-                    continue;
+                    //continue;
                   }  
                 }
                 count++;
             };
-           // logToFile(
-             // "info",
-             // `${entries[entries.length - 1]?.msg} ${leaderTerm}`,
-            //  "logs.txt"
-            //);
+
+            log.push({
+              term: leaderTerm, msg: entries[entries.length - 1]?.msg
+            });
+           logToFile(
+            "info",
+            `${entries[entries.length - 1]?.msg} ${leaderTerm}`,
+             "logs.txt"
+            );
             logToFile(
               "info",
               `Node ${nodeId} accepted AppendEntries RPC from ${leaderId}.`,
@@ -578,11 +601,16 @@ server.addService(grpcObj.RaftService.service, {
       } else if (leaderTerm == current_term) {
         if (prevLogTerm == -1 || log[log.length - 1]?.term == prevLogTerm) {
           if (prevLogIndex == -1 || log.length - 1 == prevLogIndex) {
+            // console.log("gfjfkf");
+            // console.log(prevLogIndex,prevLogTerm,log[log.length-1],log.length-1);
             let len = entries.length;
             let count = 0;
-            for (let temp = leaderCommit + 1; temp <= prevLogIndex+1; temp++) {
+            for (let temp = leaderCommit + 1; temp <= prevLogIndex; temp++) {
                 if(count < len){
-                  console.log(count,temp);
+                  // console.log("hwhfw");
+                  // console.log(count,temp);
+                  // console.log("ghj");
+                  // console.log(log?.[temp]?.msg,entries[count].msg);
                   if(log?.[temp]?.msg != entries[count].msg){
                     log[temp] = {term: entries[count].term, msg: entries[count].msg};
                     logToFile(
@@ -593,16 +621,19 @@ server.addService(grpcObj.RaftService.service, {
                   }
                   else
                   {
-                    continue;
+                    
                   }  
+                  count++;
                 }
-                count++;
             }
-            // logToFile(
-            //   "info",
-            //   `${entries[entries.length - 1]?.msg} ${leaderTerm}`,
-            //   "logs.txt"
-            // );
+            log.push({
+              term: leaderTerm, msg: entries[entries.length - 1]?.msg
+            });
+            logToFile(
+            "info",
+            `${entries[entries.length - 1]?.msg} ${leaderTerm}`,
+            "logs.txt"
+             );
             logToFile(
               "info",
               `Node ${nodeId} accepted AppendEntries RPC from ${leaderId}.`,
@@ -659,6 +690,8 @@ server.addService(grpcObj.RaftService.service, {
         callback(null, { term: current_term, success: true, nodeId: nodeId });
       } else if (req?.split(" ")?.[0] == "SET") {
         commit_index = Math.min(leaderCommit, log.length - 1);
+        console.log("commit_index");
+        console.log(commit_index);
         logToFile(
           "info",
           `Commit_length: ${commit_index}, Term: ${current_term}, NodeId: ${nodeId} `,
