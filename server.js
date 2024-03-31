@@ -4,7 +4,6 @@ const { logToFile, removeFileContent } = require("./logging");
 const protoLoader = require("@grpc/proto-loader");
 const retrieveNodeId = require("./clusterInfo");
 const { readmetadataFile, readlogFile } = require("./readLogs");
-const { Console } = require("console");
 const uuidv4 = require("uuid").v4;
 const portIndex = process.argv.indexOf("--port");
 
@@ -33,7 +32,6 @@ let leaseTimeoutId;
 let leaseAcquired = false;
 let maxLeaseTimeout = 0;
 let leaseExpiration = Date.now();
-console.log(leaseExpiration);
 
 let data = {};
 
@@ -49,7 +47,6 @@ let current_term = 0;
 let commit_index = -1;
 
 readmetadataFile().then((res) => {
-  console.log("From log file metadata", res);
   commit_index = res?.Commit_length || -1;
   current_term = res?.Term || 0;
 });
@@ -57,7 +54,6 @@ readmetadataFile().then((res) => {
 readlogFile().then((res) => {
   log = res;
   log.forEach((l) => {
-    console.log("log", l);
     let ins = l?.msg?.split(" ");
     if (ins[0] == "SET") {
       data[ins[1]] == ins[2];
@@ -177,7 +173,6 @@ const request_message = async (type = "heartbeat", log = []) => {
 
           console.error("Error sending message:");
         } else {
-          console.log(type, response);
           if (type == "heartbeat") {
             if (response?.success) {
               heartBeatVote.push(response?.nodeId);
@@ -213,8 +208,7 @@ const request_message = async (type = "heartbeat", log = []) => {
                     req = log[i].msg;
                     if (temp_commit_index == commit_index && req?.split(" ")?.[0] == "SET") {
                         data[req?.split(" ")?.[1]] = req?.split(" ")?.[2];
-                        // console.log("Hi I am data");
-                        // console.log(data);
+
                         commit_index = Math.max(commit_index , i);
                         temp_commit_index = commit_index;
                   logToFile(
@@ -222,7 +216,6 @@ const request_message = async (type = "heartbeat", log = []) => {
                     `Commit_length: ${commit_index}, Term: ${current_term}, NodeId: ${nodeId} `,
                     "metadata.txt"
                   );
-                  console.log("Leader", commit_index);
                   logToFile(
                     "info",
                     `Node ${nodeId} (leader) committed the entry ${req} to the state machine.`,
@@ -231,18 +224,15 @@ const request_message = async (type = "heartbeat", log = []) => {
                   }
                   req = log[log.length-1]?.msg;
                   data[req?.split(" ")?.[1]] = req?.split(" ")?.[2];
-                  // console.log("DATA");
-                  console.log(data);
+
                   commit_index = Math.max(commit_index , i);
-                  console.log("commit_index");
-                  console.log(commit_index);
+
                   temp_commit_index = commit_index;
                   logToFile(
                     "info",
                     `Commit_length: ${commit_index}, Term: ${current_term}, NodeId: ${nodeId} `,
                     "metadata.txt"
                   );
-                  console.log("Leader", commit_index);
                   logToFile(
                     "info",
                     `Node ${nodeId} (leader) committed the entry ${req} to the state machine.`,
@@ -345,7 +335,6 @@ const vote = () => {
               maxLeaseTimeout,
               response?.oldLeaderLeaseDuration || 0
             );
-            console.log("maxLeaseTimeout", maxLeaseTimeout);
             votes_received[current_term] = [
               ...votes_received[current_term],
               response?.nodeId
@@ -356,7 +345,6 @@ const vote = () => {
             votes_received[current_term]?.length + 1 >
               Math.ceil((Object.keys(clusterConnectionStrings)?.length + 1) / 2)
           ) {
-            console.log(maxLeaseTimeout);
             resetLeaseTimeout(maxLeaseTimeout, acquireLease);
             // resetHeartbeat(1000); //will not do in case of leaderlease
             console.log("I am a leader");
@@ -401,7 +389,6 @@ const resetTimeout = (delay) => {
     clearTimeout(timeoutId);
   }
   timeoutId = setTimeout(vote, delay);
-  // console.log(`Timeout reset for ${delay} milliseconds`);
 };
 
 const followerLease = () => {};
@@ -422,13 +409,11 @@ const acquireLease = () => {
 };
 
 const resetLeaseTimeout = (delay, leaseTimeoutFunc) => {
-  console.log("Lease time initiated");
   if (leaseTimeoutId) {
     clearTimeout(leaseTimeoutId);
   }
   leaseExpiration = Date.now() + delay;
   leaseTimeoutId = setTimeout(leaseTimeoutFunc, delay);
-  // console.log(`Timeout reset for ${delay} milliseconds`);
 };
 
 const resetHeartbeat = (delay) => {
@@ -438,7 +423,6 @@ const resetHeartbeat = (delay) => {
   }
   // Set new interval
   heartbeatId = setInterval(request_message, delay);
-  // console.log(`Interval reset for ${delay} milliseconds`);
 };
 
 const server = new grpc.Server();
@@ -450,7 +434,6 @@ server.addService(grpcObj.RaftService.service, {
     const op = request?.split(" ")?.[0];
     const key = request?.split(" ")?.[1];
     const val = request?.split(" ")?.[2];
-    console.log(request);
     if (current_role !== "leader") {
       callback(null, {
         data: `Node ${nodeId} is not a leader`,
@@ -463,7 +446,6 @@ server.addService(grpcObj.RaftService.service, {
         `Node ${nodeId} (leader) received an ${tmp} request.`,
         "dump.txt"
       );
-      console.log(op);
       if (op == "GET") {
         callback(null, {
           data: `Value retrieved for ${key}. Value : ${data?.[key]}`,
@@ -504,9 +486,7 @@ server.addService(grpcObj.RaftService.service, {
       entries,
       leaderCommit
     } = call.request;
-    console.log(type);
     if (type == "heartbeat") {
-      // console.log("ResetTimeout");
       leaseExpiration = Date.now() + 10000;
       resetLeaseTimeout(10000, followerLease);
       callback(null, { term: current_term, success: true, nodeId: nodeId });
@@ -519,8 +499,6 @@ server.addService(grpcObj.RaftService.service, {
         callback(null, { term: current_term, success: false, nodeId: nodeId });
       }
     } else if (type == "request_msg" || type == "no_op") {
-      // console.log("term");
-      // console.log(leaderTerm,current_term);
       if (leaderTerm < current_term) {
         logToFile(
           "info",
@@ -530,16 +508,12 @@ server.addService(grpcObj.RaftService.service, {
         callback(null, { term: current_term, success: false, nodeId: nodeId });
       } else if (leaderTerm > current_term) {
         leaderTerm == current_term;
-        // console.log("gfjfkf");
-        // console.log(prevLogIndex,prevLogTerm,log[log.length-1],log.length-1);
         if (prevLogTerm == -1 || log[log.length - 1]?.term == prevLogTerm) {
           if (prevLogIndex == -1 || log.length - 1 == prevLogIndex) {
             let len = entries.length;
             let count = 0;
             for (let temp = leaderCommit + 1; temp <= prevLogIndex; temp++) {
                 if(count < len){
-                  // console.log("hwhfw");
-                  // console.log(count,temp);
                   if(log?.[temp]?.msg != entries[count]?.msg){
                     log[temp] = {term: entries[count].term, msg: entries[count].msg};
                     logToFile(
@@ -601,16 +575,12 @@ server.addService(grpcObj.RaftService.service, {
       } else if (leaderTerm == current_term) {
         if (prevLogTerm == -1 || log[log.length - 1]?.term == prevLogTerm) {
           if (prevLogIndex == -1 || log.length - 1 == prevLogIndex) {
-            // console.log("gfjfkf");
-            // console.log(prevLogIndex,prevLogTerm,log[log.length-1],log.length-1);
+
             let len = entries.length;
             let count = 0;
             for (let temp = leaderCommit + 1; temp <= prevLogIndex; temp++) {
                 if(count < len){
-                  // console.log("hwhfw");
-                  // console.log(count,temp);
-                  // console.log("ghj");
-                  // console.log(log?.[temp]?.msg,entries[count].msg);
+              
                   if(log?.[temp]?.msg != entries[count].msg){
                     log[temp] = {term: entries[count].term, msg: entries[count].msg};
                     logToFile(
@@ -673,15 +643,13 @@ server.addService(grpcObj.RaftService.service, {
       let req = log[prevLogIndex + 1]?.msg;
       if (req?.split(" ")?.[0] == "SET") {
         data[req?.split(" ")?.[1]] = req?.split(" ")?.[2];
-        console.log("Hi I am data");
-        console.log(data);
+
         commit_index = Math.min(leaderCommit, log.length - 1);
         logToFile(
           "info",
           `Commit_length: ${commit_index}, Term: ${current_term}, NodeId: ${nodeId} `,
           "metadata.txt"
         );
-        console.log("Follower", commit_index);
         logToFile(
           "info",
           `Node ${nodeId} (follower) committed the entry ${req} to the state machine.`,
@@ -690,8 +658,7 @@ server.addService(grpcObj.RaftService.service, {
         callback(null, { term: current_term, success: true, nodeId: nodeId });
       } else if (req?.split(" ")?.[0] == "SET") {
         commit_index = Math.min(leaderCommit, log.length - 1);
-        console.log("commit_index");
-        console.log(commit_index);
+
         logToFile(
           "info",
           `Commit_length: ${commit_index}, Term: ${current_term}, NodeId: ${nodeId} `,
@@ -716,7 +683,6 @@ server.addService(grpcObj.RaftService.service, {
                 logToFile("info", `${l.msg} ${l.term}`, "logs.txt");
               });
 
-              console.log(message);
             })
             .catch((error) => {
               console.error("Error occurred on logfix clear:", error);
@@ -735,7 +701,6 @@ server.addService(grpcObj.RaftService.service, {
   RequestVote: (call, callback) => {
     const { candidateTerm, candidateId, lastLogIndex, lastLogTerm } =
       call.request;
-    console.log(call.request);
     console.log("Vote Requested By " + candidateId);
     resetTimeout(randsec * 1000);
     if (current_term < candidateTerm) {
@@ -757,13 +722,7 @@ server.addService(grpcObj.RaftService.service, {
       let log_ok =
         lastLogTerm > last_term ||
         (lastLogTerm == last_term && lastLogIndex + 1 >= log.length);
-      console.log(lastLogTerm, last_term, lastLogIndex, log.length);
-      console.log(
-        candidateTerm,
-        current_term,
-        log_ok,
-        voted_for[candidateTerm]
-      );
+    
       if (
         candidateTerm == current_term &&
         log_ok &&
@@ -777,7 +736,6 @@ server.addService(grpcObj.RaftService.service, {
           "dump.txt"
         );
         let dur = leaseExpiration - Date.now();
-        console.log(dur);
         callback(null, {
           term: current_term,
           voteGranted: true,
@@ -785,7 +743,6 @@ server.addService(grpcObj.RaftService.service, {
           oldLeaderLeaseDuration: dur > 0 ? dur : 0
         });
       } else {
-        console.log("hd");
         logToFile(
           "error",
           `Vote denied for Node ${candidateId} in term ${current_term}.`,
@@ -798,7 +755,6 @@ server.addService(grpcObj.RaftService.service, {
         });
       }
     } else {
-      console.log("h");
       logToFile(
         "error",
         `Vote denied for Node ${candidateId} in term ${current_term}.`,
