@@ -75,7 +75,7 @@ const log_fix = (
       leaderId: nodeId,
       prevLogIndex: prevLogIndex,
       prevLogTerm: prevLogTerm,
-      entries: log.slice(commit_index + 1, prevLogIndex + 2),
+      entries: log.slice(prevLogIndex + 1, log.length),
       leaderCommit: commit_index,
       type: "log_fix"
     },
@@ -489,7 +489,10 @@ server.addService(grpcObj.RaftService.service, {
       leaderCommit
     } = call.request;
     if (type == "heartbeat") {
+      console.log("Recieved Heartbeat")
       leaseExpiration = Date.now() + 10000;
+      current_leader[leaderTerm] = leaderId;
+    
       resetLeaseTimeout(10000, followerLease);
       callback(null, { term: current_term, success: true, nodeId: nodeId });
       resetTimeout(randsec * 1000);
@@ -673,7 +676,7 @@ server.addService(grpcObj.RaftService.service, {
         if (prevLogTerm == -1 || log[prevLogIndex]?.term == prevLogTerm) {
           log = log.slice(prevLogIndex);
           log = [...log, ...entries];
-          commit_index = log.length - 1;
+          commit_index = prevLogIndex;
           logToFile(
             "info",
             `Commit_length: ${commit_index}, Term: ${current_term}, NodeId: ${nodeId} `,
