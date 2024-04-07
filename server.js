@@ -395,6 +395,7 @@ const resetTimeout = (delay) => {
 
 const followerLease = () => {};
 const releaseLease = () => {
+  logToFile("info",`Leader ${nodeId} lease renewal failed. Stepping Down.`,"dump.txt")
   leaseAcquired = false;
   current_role = "follower";
 };
@@ -436,7 +437,7 @@ server.addService(grpcObj.RaftService.service, {
     const op = request?.split(" ")?.[0];
     const key = request?.split(" ")?.[1];
     const val = request?.split(" ")?.[2];
-    if (current_role !== "leader") {
+    if (!leaseAcquired) {
       callback(null, {
         data: `Node ${nodeId} is not a leader`,
         success: false,
