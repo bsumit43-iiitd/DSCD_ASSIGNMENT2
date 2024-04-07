@@ -75,7 +75,7 @@ const log_fix = (
       leaderId: nodeId,
       prevLogIndex: prevLogIndex,
       prevLogTerm: prevLogTerm,
-      entries: log.slice(commit_index+1, prevLogIndex+2),
+      entries: log.slice(commit_index + 1, prevLogIndex + 2),
       leaderCommit: commit_index,
       type: "log_fix"
     },
@@ -156,7 +156,7 @@ const request_message = async (type = "heartbeat", log = []) => {
             ? []
             : type == "no_op"
             ? log.slice(-1)
-            : log.slice(commit_index+1,prevLogIndex+2), // This will get changed
+            : log.slice(commit_index + 1, prevLogIndex + 2), // This will get changed
         leaderCommit: temp_commit_index,
         type: type
       },
@@ -178,7 +178,7 @@ const request_message = async (type = "heartbeat", log = []) => {
               heartBeatVote.push(response?.nodeId);
             }
             if (
-              heartBeatVote?.length + 1 >
+              heartBeatVote?.length + 1 >=
               Math.ceil((Object.keys(clusterConnectionStrings)?.length + 1) / 2)
             ) {
               leaseExpiration = Date.now() + 10000;
@@ -196,61 +196,64 @@ const request_message = async (type = "heartbeat", log = []) => {
                 req_msg_vote_received[prevLogIndex + 1] = [response?.nodeId];
               }
 
+             
               if (
-                req_msg_vote_received[prevLogIndex + 1]?.length + 1 >
+                req_msg_vote_received[prevLogIndex + 1]?.length + 1 >=
                 Math.ceil(
                   (Object.keys(clusterConnectionStrings)?.length + 1) / 2
                 )
               ) {
+                console.log("Majority Received");
                 let req;
-                for(let i = commit_index + 1; i < log.length-1; i++)
-                {
-                    req = log[i].msg;
-                    if (temp_commit_index == commit_index && req?.split(" ")?.[0] == "SET") {
-                        data[req?.split(" ")?.[1]] = req?.split(" ")?.[2];
+                for (let i = commit_index + 1; i < log.length - 1; i++) {
+                  console.log("Majority  For Received");
+                  req = log[i].msg;
+                  if (
+                    temp_commit_index == commit_index &&
+                    req?.split(" ")?.[0] == "SET"
+                  ) {
+                    data[req?.split(" ")?.[1]] = req?.split(" ")?.[2];
 
-                        commit_index = Math.max(commit_index , i);
-                        temp_commit_index = commit_index;
-                  logToFile(
-                    "info",
-                    `Commit_length: ${commit_index}, Term: ${current_term}, NodeId: ${nodeId} `,
-                    "metadata.txt"
-                  );
-                  logToFile(
-                    "info",
-                    `Node ${nodeId} (leader) committed the entry ${req} to the state machine.`,
-                    "dump.txt"
-                  );
+                    commit_index = Math.max(commit_index, i);
+                    temp_commit_index = commit_index;
+                    logToFile(
+                      "info",
+                      `Commit_length: ${commit_index}, Term: ${current_term}, NodeId: ${nodeId} `,
+                      "metadata.txt"
+                    );
+                    logToFile(
+                      "info",
+                      `Node ${nodeId} (leader) committed the entry ${req} to the state machine.`,
+                      "dump.txt"
+                    );
                   }
-                  req = log[log.length-1]?.msg;
-                  data[req?.split(" ")?.[1]] = req?.split(" ")?.[2];
-
-                  commit_index = Math.max(commit_index , i);
-
-                  temp_commit_index = commit_index;
-                  logToFile(
-                    "info",
-                    `Commit_length: ${commit_index}, Term: ${current_term}, NodeId: ${nodeId} `,
-                    "metadata.txt"
-                  );
-                  logToFile(
-                    "info",
-                    `Node ${nodeId} (leader) committed the entry ${req} to the state machine.`,
-                    "dump.txt"
-                  );
-                  req_ack(
-                    temp_current_term,
-                    commit_index,
-                    prevLogIndex,
-                    prevLogTerm
-                  );
-                  return;
-
                 }
-                  if(req?.split(" ")?.[0] == "NO-OP") {
+                req = log[log.length - 1]?.msg;
+                data[req?.split(" ")?.[1]] = req?.split(" ")?.[2];
 
+                commit_index = Math.max(commit_index, log.length - 1);
+
+                temp_commit_index = commit_index;
+                logToFile(
+                  "info",
+                  `Commit_length: ${commit_index}, Term: ${current_term}, NodeId: ${nodeId} `,
+                  "metadata.txt"
+                );
+                logToFile(
+                  "info",
+                  `Node ${nodeId} (leader) committed the entry ${req} to the state machine.`,
+                  "dump.txt"
+                );
+                req_ack(
+                  temp_current_term,
+                  commit_index,
+                  prevLogIndex,
+                  prevLogTerm
+                );
+                return;
+
+                if (req?.split(" ")?.[0] == "NO-OP") {
                 } else if (req?.split(" ")?.[0] == "NO_OP") {
-
                   commit_index = parseInt(commit_index) + 1;
                   logToFile(
                     "info",
@@ -273,7 +276,6 @@ const request_message = async (type = "heartbeat", log = []) => {
                 if (heartbeatId) {
                   clearInterval(heartbeatId);
                 }
-
               } else {
                 // log inconsistency case
                 log_fix(
@@ -342,7 +344,7 @@ const vote = () => {
           }
           if (
             current_role != "leader" &&
-            votes_received[current_term]?.length + 1 >
+            votes_received[current_term]?.length + 1 >=
               Math.ceil((Object.keys(clusterConnectionStrings)?.length + 1) / 2)
           ) {
             resetLeaseTimeout(maxLeaseTimeout, acquireLease);
@@ -360,7 +362,7 @@ const vote = () => {
             // resetTimeout(randsec * 1000);
           } else if (
             current_role == "leader" &&
-            votes_received[current_term]?.length + 1 >
+            votes_received[current_term]?.length + 1 >=
               Math.ceil((Object.keys(clusterConnectionStrings)?.length + 1) / 2)
           ) {
             if (
@@ -455,23 +457,23 @@ server.addService(grpcObj.RaftService.service, {
         log.push({ term: current_term, msg: request });
         // logging to logs.txt
         logToFile("info", `${tmp} ${current_term}`, "logs.txt");
-        const timeoutDuration = 5000; 
+        const timeoutDuration = 5000;
         let timeoutReached = false;
         const timeoutId = setTimeout(() => {
-        timeoutReached = true;
-        callback(null, {
+          timeoutReached = true;
+          callback(null, {
             data: `Set Value is unsuccessfull at key = ${key} and value = ${val}`,
             success: false
-        });
-    }, timeoutDuration);
+          });
+        }, timeoutDuration);
         request_message("request_msg", log).then((res) => {
           if (!timeoutReached) {
             clearTimeout(timeoutId); // Clear the timeout
             callback(null, {
-                data: `Set Value successfully at key = ${key} and value = ${val}`,
-                success: true
+              data: `Set Value successfully at key = ${key} and value = ${val}`,
+              success: true
             });
-        }
+          }
         });
       }
     }
@@ -513,30 +515,32 @@ server.addService(grpcObj.RaftService.service, {
             let len = entries.length;
             let count = 0;
             for (let temp = leaderCommit + 1; temp <= prevLogIndex; temp++) {
-                if(count < len){
-                  if(log?.[temp]?.msg != entries[count]?.msg){
-                    log[temp] = {term: entries[count].term, msg: entries[count].msg};
-                    logToFile(
-                      "info",
-                      `${entries[count]?.msg} ${entries[count].term}`,
-                      "logs.txt"
-                    );
-                  }
-                  else
-                  {
-                    //continue;
-                  }  
+              if (count < len) {
+                if (log?.[temp]?.msg != entries[count]?.msg) {
+                  log[temp] = {
+                    term: entries[count].term,
+                    msg: entries[count].msg
+                  };
+                  logToFile(
+                    "info",
+                    `${entries[count]?.msg} ${entries[count].term}`,
+                    "logs.txt"
+                  );
+                } else {
+                  //continue;
                 }
-                count++;
-            };
+              }
+              count++;
+            }
 
             log.push({
-              term: leaderTerm, msg: entries[entries.length - 1]?.msg
+              term: leaderTerm,
+              msg: entries[entries.length - 1]?.msg
             });
-           logToFile(
-            "info",
-            `${entries[entries.length - 1]?.msg} ${leaderTerm}`,
-             "logs.txt"
+            logToFile(
+              "info",
+              `${entries[entries.length - 1]?.msg} ${leaderTerm}`,
+              "logs.txt"
             );
             logToFile(
               "info",
@@ -575,35 +579,34 @@ server.addService(grpcObj.RaftService.service, {
       } else if (leaderTerm == current_term) {
         if (prevLogTerm == -1 || log[log.length - 1]?.term == prevLogTerm) {
           if (prevLogIndex == -1 || log.length - 1 == prevLogIndex) {
-
             let len = entries.length;
             let count = 0;
             for (let temp = leaderCommit + 1; temp <= prevLogIndex; temp++) {
-                if(count < len){
-              
-                  if(log?.[temp]?.msg != entries[count].msg){
-                    log[temp] = {term: entries[count].term, msg: entries[count].msg};
-                    logToFile(
-                      "info",
-                      `${entries[count]?.msg} ${entries[count].term}`,
-                      "logs.txt"
-                    );
-                  }
-                  else
-                  {
-                    
-                  }  
-                  count++;
+              if (count < len) {
+                if (log?.[temp]?.msg != entries[count].msg) {
+                  log[temp] = {
+                    term: entries[count].term,
+                    msg: entries[count].msg
+                  };
+                  logToFile(
+                    "info",
+                    `${entries[count]?.msg} ${entries[count].term}`,
+                    "logs.txt"
+                  );
+                } else {
                 }
+                count++;
+              }
             }
             log.push({
-              term: leaderTerm, msg: entries[entries.length - 1]?.msg
+              term: leaderTerm,
+              msg: entries[entries.length - 1]?.msg
             });
             logToFile(
-            "info",
-            `${entries[entries.length - 1]?.msg} ${leaderTerm}`,
-            "logs.txt"
-             );
+              "info",
+              `${entries[entries.length - 1]?.msg} ${leaderTerm}`,
+              "logs.txt"
+            );
             logToFile(
               "info",
               `Node ${nodeId} accepted AppendEntries RPC from ${leaderId}.`,
@@ -682,7 +685,6 @@ server.addService(grpcObj.RaftService.service, {
               log.forEach((l) => {
                 logToFile("info", `${l.msg} ${l.term}`, "logs.txt");
               });
-
             })
             .catch((error) => {
               console.error("Error occurred on logfix clear:", error);
@@ -722,7 +724,7 @@ server.addService(grpcObj.RaftService.service, {
       let log_ok =
         lastLogTerm > last_term ||
         (lastLogTerm == last_term && lastLogIndex + 1 >= log.length);
-    
+
       if (
         candidateTerm == current_term &&
         log_ok &&
