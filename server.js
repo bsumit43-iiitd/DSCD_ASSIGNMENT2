@@ -674,9 +674,18 @@ server.addService(grpcObj.RaftService.service, {
     } else if (type == "log_fix") {
       if (prevLogIndex == -1 || log.length - 1 >= prevLogIndex) {
         if (prevLogTerm == -1 || log[prevLogIndex]?.term == prevLogTerm) {
-          log = log.slice(prevLogIndex);
+         
+          //log = log.slice(prevLogIndex);
           log = [...log, ...entries];
-          commit_index = prevLogIndex;
+          
+          for(let i = 0; i < log.length - 1 ; i++){
+            let req = log[i].msg;
+            if(req?.split(" ")?.[0] == "SET"){
+              data[req?.split(" ")?.[1]] = req?.split(" ")?.[2];
+              commit_index = Math.max(commit_index, i);
+            }
+          }
+          //commit_index = prevLogIndex;
           logToFile(
             "info",
             `Commit_length: ${commit_index}, Term: ${current_term}, NodeId: ${nodeId} `,

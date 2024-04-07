@@ -80,6 +80,17 @@ async function requestServer(operation, key, value = "", count = 0) {
       },
       (err, response) => {
         if (err) {
+          if (count > 10) {
+            console.log("Exceeded Retry");
+            return false;
+          } else {
+            setTimeout(()=>{
+              lId = Object.keys(clusterInfo)?.sample();
+              retrieveIpPort(lId);
+              requestServer(operation, key, value, ++count);
+            },[5000])
+            
+          }
           console.error("Error sending message:", err);
           return false;
         } else {
@@ -108,9 +119,12 @@ async function requestServer(operation, key, value = "", count = 0) {
       console.log("Exceeded Retry");
       return false;
     } else {
-      lId = Object.keys(clusterInfo)?.sample();
-      retrieveIpPort(lId);
-      requestServer(operation, key, value, ++count);
+      setTimeout(()=>{
+        lId = Object.keys(clusterInfo)?.sample();
+        retrieveIpPort(lId);
+        requestServer(operation, key, value, ++count);
+      },[5000])
+      
     }
   }
 }
