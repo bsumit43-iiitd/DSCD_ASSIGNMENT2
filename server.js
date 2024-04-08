@@ -347,6 +347,7 @@ const vote = () => {
             votes_received[current_term]?.length + 1 >=
               Math.ceil((Object.keys(clusterConnectionStrings)?.length + 1) / 2)
           ) {
+            logToFile("info","New Leader waiting for Old Leader Lease to timeout.","dump.txt")
             resetLeaseTimeout(maxLeaseTimeout, acquireLease);
             // resetHeartbeat(1000); //will not do in case of leaderlease
             console.log("I am a leader");
@@ -829,4 +830,4 @@ Object.values(clusterConnectionStrings).forEach((client) => {
   );
 });
 
-resetTimeout(randsec * 1000);
+resetTimeout(randsec * 10000);
