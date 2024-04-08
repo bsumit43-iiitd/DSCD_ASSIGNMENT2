@@ -196,7 +196,6 @@ const request_message = async (type = "heartbeat", log = []) => {
                 req_msg_vote_received[prevLogIndex + 1] = [response?.nodeId];
               }
 
-             
               if (
                 req_msg_vote_received[prevLogIndex + 1]?.length + 1 >=
                 Math.ceil(
@@ -347,7 +346,11 @@ const vote = () => {
             votes_received[current_term]?.length + 1 >=
               Math.ceil((Object.keys(clusterConnectionStrings)?.length + 1) / 2)
           ) {
-            logToFile("info","New Leader waiting for Old Leader Lease to timeout.","dump.txt")
+            logToFile(
+              "info",
+              "New Leader waiting for Old Leader Lease to timeout.",
+              "dump.txt"
+            );
             resetLeaseTimeout(maxLeaseTimeout, acquireLease);
             // resetHeartbeat(1000); //will not do in case of leaderlease
             console.log("I am a leader");
@@ -396,7 +399,11 @@ const resetTimeout = (delay) => {
 
 const followerLease = () => {};
 const releaseLease = () => {
-  logToFile("info",`Leader ${nodeId} lease renewal failed. Stepping Down.`,"dump.txt")
+  logToFile(
+    "info",
+    `Leader ${nodeId} lease renewal failed. Stepping Down.`,
+    "dump.txt"
+  );
   leaseAcquired = false;
   current_role = "follower";
 };
@@ -491,10 +498,11 @@ server.addService(grpcObj.RaftService.service, {
       leaderCommit
     } = call.request;
     if (type == "heartbeat") {
-      console.log("Recieved Heartbeat")
+      console.log("Recieved Heartbeat");
       leaseExpiration = Date.now() + 10000;
       current_leader[leaderTerm] = leaderId;
-    
+      current_term = leaderTerm;
+
       resetLeaseTimeout(10000, followerLease);
       callback(null, { term: current_term, success: true, nodeId: nodeId });
       resetTimeout(randsec * 1000);
@@ -676,13 +684,12 @@ server.addService(grpcObj.RaftService.service, {
     } else if (type == "log_fix") {
       if (prevLogIndex == -1 || log.length - 1 >= prevLogIndex) {
         if (prevLogTerm == -1 || log[prevLogIndex]?.term == prevLogTerm) {
-         
           //log = log.slice(prevLogIndex);
           log = [...log, ...entries];
-          
-          for(let i = 0; i < log.length - 1 ; i++){
+
+          for (let i = 0; i < log.length - 1; i++) {
             let req = log[i].msg;
-            if(req?.split(" ")?.[0] == "SET"){
+            if (req?.split(" ")?.[0] == "SET") {
               data[req?.split(" ")?.[1]] = req?.split(" ")?.[2];
               commit_index = Math.max(commit_index, i);
             }
