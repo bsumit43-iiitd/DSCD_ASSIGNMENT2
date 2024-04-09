@@ -4,6 +4,7 @@ const { logToFile, removeFileContent } = require("./logging");
 const protoLoader = require("@grpc/proto-loader");
 const retrieveNodeId = require("./clusterInfo");
 const { readmetadataFile, readlogFile } = require("./readLogs");
+const retrieveNodeIp = require("./retrieveip");
 const uuidv4 = require("uuid").v4;
 const portIndex = process.argv.indexOf("--port");
 
@@ -793,8 +794,9 @@ server.addService(grpcObj.RaftService.service, {
   Register: (call, callback) => {
     const { msg } = call.request;
     peers.push(msg);
+    const ip = retrieveNodeIp(msg);
     const client = new grpcObj.RaftService(
-      `0.0.0.0:${msg}`,
+      `${ip}:${msg}`,
       grpc.credentials.createInsecure()
     );
     clusterConnectionStrings[msg] = client;
