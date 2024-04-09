@@ -250,7 +250,7 @@ const request_message = async (type = "heartbeat", log = []) => {
                   prevLogIndex,
                   prevLogTerm
                 );
-                // return;
+                return;
 
                 if (req?.split(" ")?.[0] == "NO-OP") {
                 } else if (req?.split(" ")?.[0] == "NO_OP") {
