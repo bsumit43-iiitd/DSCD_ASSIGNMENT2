@@ -501,7 +501,7 @@ server.addService(grpcObj.RaftService.service, {
       console.log("Recieved Heartbeat");
       leaseExpiration = Date.now() + 10000;
       current_leader[leaderTerm] = leaderId;
-      current_term = leaderTerm;
+      // current_term = leaderTerm;
 
       resetLeaseTimeout(10000, followerLease);
       callback(null, { term: current_term, success: true, nodeId: nodeId });
